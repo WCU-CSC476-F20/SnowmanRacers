@@ -15,13 +15,15 @@ namespace Com.MyCompany.MyGame
     public class GameManager : MonoBehaviourPunCallbacks
     {
 
-
         #region Photon Callbacks
 
 
         /// <summary>
         /// Called when the local player left the room. We need to load the launcher scene.
         /// </summary>
+        public void Start(){
+            PhotonNetwork.Instantiate("Sphere", new Vector3(0, 2, -8), Quaternion.identity, 0);
+        }
         public override void OnLeftRoom()
         {
             SceneManager.LoadScene(0);
@@ -70,6 +72,7 @@ namespace Com.MyCompany.MyGame
             }
             Debug.LogFormat("PhotonNetwork : Loading Level : {0}", PhotonNetwork.CurrentRoom.PlayerCount);
             PhotonNetwork.LoadLevel("Room for " + PhotonNetwork.CurrentRoom.PlayerCount);
+            
         }      
 
 
