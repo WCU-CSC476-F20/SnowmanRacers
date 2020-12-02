@@ -15,7 +15,8 @@ public class SyncMoves : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody>();        
+        rb = GetComponent<Rigidbody>();   
+        photonView = GetComponent<PhotonView>();     
     }
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
