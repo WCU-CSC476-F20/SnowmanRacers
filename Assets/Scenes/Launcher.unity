@@ -152,7 +152,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49d3c49e843c0484b9ba7a4eac815a58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 201294333127248762, guid: cc1ed51f95273b54b9ec55f66b9dfb5e, type: 3}
   maxPlayersPerRoom: 4
   controlPanel: {fileID: 424487067}
   progressLabel: {fileID: 1434377164}
@@ -343,7 +342,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.5, g: 0.48505324, b: 0.021226406, a: 0}
+  m_BackGroundColor: {r: 0.16981131, g: 0.16981131, b: 0.16981131, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
