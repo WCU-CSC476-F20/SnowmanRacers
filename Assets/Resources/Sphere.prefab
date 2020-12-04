@@ -135,12 +135,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   velocity: {x: 0, y: 0, z: 0}
   speed: 1
-  jumpPower: 3
+  jumpPower: 6
   runningJump: 20
   maxSpeed: 5
-  jumpCurrent: 0
-  isGrounded: 0
-  jump: {x: 0, y: 2, z: 0}
+  isJumping: 0
   rb: {fileID: 0}
 --- !u!114 &4522453104996536937
 MonoBehaviour:
@@ -620,9 +618,7 @@ MonoBehaviour:
   jumpPower: 0
   runningJump: 9
   maxSpeed: 20
-  jumpCurrent: 0
-  isGrounded: 0
-  jump: {x: 0, y: 2, z: 0}
+  isJumping: 0
   rb: {fileID: 0}
 --- !u!114 &6733852608486968772
 MonoBehaviour:
@@ -778,9 +774,7 @@ MonoBehaviour:
   jumpPower: 0
   runningJump: 9
   maxSpeed: 20
-  jumpCurrent: 0
-  isGrounded: 0
-  jump: {x: 0, y: 2, z: 0}
+  isJumping: 0
   rb: {fileID: 0}
 --- !u!114 &9096707738566500931
 MonoBehaviour:

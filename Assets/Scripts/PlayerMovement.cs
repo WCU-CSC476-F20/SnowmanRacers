@@ -28,45 +28,48 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.A)){
-            if(Input.GetKey(KeyCode.D)){
-                velocity.x += speed;
-                rb.velocity = velocity;
-            }    
-            if(Input.GetKey(KeyCode.A)){
-                velocity.x += -speed;
-                rb.velocity = velocity;
+        if(myView.IsMine){
+            if(Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.A)){
+                if(Input.GetKey(KeyCode.D)){
+                    velocity.x += speed;
+                    rb.velocity = velocity;
+                }    
+                if(Input.GetKey(KeyCode.A)){
+                    velocity.x += -speed;
+                    rb.velocity = velocity;
+                }
+                if(Input.GetKeyDown(KeyCode.W) /*&& !isJumping*/){
+                    isJumping = true;
+                    velocity.y += jumpPower;   
+                    rb.velocity = velocity;
+                }else if(isJumping){
+                    velocity.y += -.05f;
+                    rb.velocity = velocity;
+                }
+            }else{
+                if(velocity.x > 0){
+                    velocity.x -= speed;
+                    rb.velocity = velocity;
+                }else if(velocity.x < 0){
+                    velocity.x += speed;
+                    rb.velocity = velocity;
+                }    
             }
-            if(Input.GetKeyDown(KeyCode.W) /*&& !isJumping*/){
-                isJumping = true;
-                velocity.y += jumpPower;   
-                rb.velocity = velocity;
-            }else if(isJumping){
-                velocity.y += -.05f;
-                rb.velocity = velocity;
-            }
-        }else{
-            if(velocity.x > 0){
-                velocity.x -= speed;
-                rb.velocity = velocity;
-            }else if(velocity.x < 0){
-                velocity.x += speed;
-                rb.velocity = velocity;
-            }    
-        }
         
-        if(Input.GetKey(KeyCode.W) && !isJumping){
-            isJumping = true;
-            velocity += transform.up*jumpPower;
-            rb.velocity = velocity;
-        }
-        if(velocity.x >= maxSpeed){
+            if(Input.GetKey(KeyCode.W) && !isJumping){
+                isJumping = true;
+                velocity += transform.up*jumpPower;
+                rb.velocity = velocity;
+            }
+            if(velocity.x >= maxSpeed){
                 velocity.x = maxSpeed;
-        }else if(velocity.x <= -maxSpeed){
+            }else if(velocity.x <= -maxSpeed){
                 velocity.x = -maxSpeed;
+            }
+            if(velocity.y >= jumpPower){
+                velocity.y = jumpPower;
+            } 
         }
-        if(velocity.y >= jumpPower){
-            velocity.y = jumpPower;
-        } 
+
     }
 }
