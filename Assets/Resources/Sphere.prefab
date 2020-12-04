@@ -137,7 +137,9 @@ MonoBehaviour:
   speed: 2
   jumpPower: 0
   jumpHeight: 3
-  isJumping: 0
+  jumpCurrent: 0
+  isGrounded: 0
+  jump: {x: 0, y: 2, z: 0}
   rb: {fileID: 0}
 --- !u!114 &4522453104996536937
 MonoBehaviour:
@@ -616,7 +618,9 @@ MonoBehaviour:
   speed: 2
   jumpPower: 0
   jumpHeight: 3
-  isJumping: 0
+  jumpCurrent: 0
+  isGrounded: 0
+  jump: {x: 0, y: 2, z: 0}
   rb: {fileID: 0}
 --- !u!114 &6733852608486968772
 MonoBehaviour:
@@ -771,7 +775,9 @@ MonoBehaviour:
   speed: 2
   jumpPower: 0
   jumpHeight: 3
-  isJumping: 0
+  jumpCurrent: 0
+  isGrounded: 0
+  jump: {x: 0, y: 2, z: 0}
   rb: {fileID: 0}
 --- !u!114 &9096707738566500931
 MonoBehaviour:
