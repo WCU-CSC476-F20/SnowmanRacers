@@ -134,9 +134,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocity: {x: 0, y: 0, z: 0}
-  speed: 2
-  jumpPower: 0
-  jumpHeight: 3
+  speed: 1
+  jumpPower: 3
+  runningJump: 20
+  maxSpeed: 5
   jumpCurrent: 0
   isGrounded: 0
   jump: {x: 0, y: 2, z: 0}
@@ -617,7 +618,8 @@ MonoBehaviour:
   velocity: {x: 0, y: 0, z: 0}
   speed: 2
   jumpPower: 0
-  jumpHeight: 3
+  runningJump: 9
+  maxSpeed: 20
   jumpCurrent: 0
   isGrounded: 0
   jump: {x: 0, y: 2, z: 0}
@@ -774,7 +776,8 @@ MonoBehaviour:
   velocity: {x: 0, y: 0, z: 0}
   speed: 2
   jumpPower: 0
-  jumpHeight: 3
+  runningJump: 9
+  maxSpeed: 20
   jumpCurrent: 0
   isGrounded: 0
   jump: {x: 0, y: 2, z: 0}
