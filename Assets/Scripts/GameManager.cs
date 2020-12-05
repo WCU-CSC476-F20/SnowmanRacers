@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections;
 
-
+using UnityEngine.UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -10,24 +10,75 @@ using Photon.Pun;
 using Photon.Realtime;
 
 
-namespace Com.MyCompany.MyGame
+public class GameManager : MonoBehaviourPunCallbacks
 {
-    public class GameManager : MonoBehaviourPunCallbacks
-    {
 
-        #region Photon Callbacks
         public static bool loadOnce = false;
+        public Text uitTimer;
+        public Text uitTimerLeft;
+        public Text theLeaderboard;
+        public Text theTimes;
+        public GameObject countdown;
+        public GameObject roundOver;
+        public GameObject timeZone;
+        public static float timer;
+        public float tempTime;
+        public float timeLeft = 30f;
+        public static string[] names = new string[4];
+        public static string[] times = new string[4];
+        public static int place;
 
-        /// <summary>
         /// Called when the local player left the room. We need to load the launcher scene.
-        /// </summary>
         public void Start(){
-            PhotonNetwork.Instantiate("Sphere", new Vector3(0, 2, -8), Quaternion.identity, 0);
+            countdown.SetActive(false);
+            roundOver.SetActive(false);
+            timeZone.SetActive(true);
+            Time.timeScale = 1f;
+            timer = 0;
+            place = 0;
+            if(names != null){
+                Array.Clear(names, 0, names.Length);
+            }
+            
+            PhotonNetwork.Instantiate("Snowman", new Vector3(0, 2, -8), Quaternion.identity, 0);
         }
         public void Update(){
-            Debug.Log("Player Objects: " + GameObject.FindGameObjectsWithTag("Player").Length);
+            timer += Time.deltaTime;
+            uitTimer.text = timer.ToString("F2");
+            
+            if(Goal.goalMet && GameObject.FindGameObjectsWithTag("Player").Length != 0){
+                //Debug.Log("Goal.goalMet = " + Goal.goalMet);
+                countdown.SetActive(true);
+                timeLeft = tempTime - timer;
+                uitTimerLeft.text = timeLeft.ToString("F2");
+            }else{
+                tempTime = timer + 30f;
+            }
+            if(timeLeft <= 0f){
+                //GameObject[] gos = GameObject.FindGameObjectsWithTag("Player");
+                //foreach(GameObject pTemp in gos){
+                //    Destroy(pTemp);
+                //}
+            }
+            
+            //Debug.Log("Player Objects: " + GameObject.FindGameObjectsWithTag("Player").Length);
             if(GameObject.FindGameObjectsWithTag("Player").Length == 0 && !loadOnce){
+                roundOver.SetActive(true);
                 loadOnce = true;
+                countdown.SetActive(false);
+                timeZone.SetActive(false); 
+                for(int i = 0; i < names.Length; i++){
+                    if(names[i] != null){
+                        theLeaderboard.text += (i+1) + ". " + names[i] + "\n";
+                        theTimes.text += times[i] + "\n";
+                    }
+                    
+                }
+            }
+        }
+        public void GoToLobby(){
+            if(PhotonNetwork.IsMasterClient){
+                Goal.goalMet = false;
                 PhotonNetwork.LoadLevel("Launcher");
             }
         }
@@ -36,8 +87,8 @@ namespace Com.MyCompany.MyGame
             SceneManager.LoadScene(0);
         }
 
-        public override void OnPlayerEnteredRoom(Player other)
-        {
+    public override void OnPlayerEnteredRoom(Player other)
+    {
         Debug.LogFormat("OnPlayerEnteredRoom() {0}", other.NickName); // not seen if you're the player connecting
 
 
@@ -51,7 +102,7 @@ namespace Com.MyCompany.MyGame
     }
 
 
-        public override void OnPlayerLeftRoom(Player other)
+    public override void OnPlayerLeftRoom(Player other)
         {
             Debug.LogFormat("OnPlayerLeftRoom() {0}", other.NickName); // seen when other disconnects
 
@@ -63,12 +114,7 @@ namespace Com.MyCompany.MyGame
 
             LoadArena();
         }
-        }
-
-
-        #endregion
-
-        #region Private Methods
+    }
 
 
         void LoadArena()
@@ -83,18 +129,9 @@ namespace Com.MyCompany.MyGame
         }      
 
 
-#endregion
-
-
-        #region Public Methods
-
-
         public void LeaveRoom()
         {
             PhotonNetwork.Disconnect();
         }
 
-
-        #endregion
-    }
 }

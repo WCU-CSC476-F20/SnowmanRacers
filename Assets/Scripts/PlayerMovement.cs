@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using Photon.Realtime; 
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     public float runningJump = 9f;
     public float maxSpeed = 5f;
     public bool isJumping = false; 
+    public bool isColliding = false;
     public Rigidbody rb;
     PhotonView myView;
     GameObject player;
@@ -29,6 +31,17 @@ public class PlayerMovement : MonoBehaviour
     void OnTriggerEnter(Collider other){
         if(other.gameObject.tag == "Goal"){
             if(myView.IsMine){
+                if(isColliding)return;
+                isColliding = true;
+                Debug.Log("Entered the goal");
+                
+                Debug.Log(GameManager.place);
+                GameManager.names[GameManager.place] = myView.Owner.NickName;
+                Debug.Log("Sent Name");
+                GameManager.times[GameManager.place] = GameManager.timer.ToString("F2");
+                Debug.Log("Sent Time");
+                GameManager.place++;
+                Debug.Log("GameManager.place = " + GameManager.place.ToString());
                 PhotonNetwork.Destroy(myView);
             }
         }

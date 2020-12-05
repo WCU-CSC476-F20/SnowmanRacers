@@ -153,10 +153,10 @@ namespace Com.MyCompany.MyGame
             }
         }
         public void StartLevelRun(string level){
-            //if(PhotonNetwork.IsMasterClient){
+            if(PhotonNetwork.IsMasterClient){
                 GameManager.loadOnce = false;
                 PhotonNetwork.LoadLevel("Room for " + level);
-            //}
+            }
         }
         public void LeaveRoom()
         {
