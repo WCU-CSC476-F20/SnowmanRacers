@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     public bool isJumping = false; 
     public Rigidbody rb;
     PhotonView myView;
+    GameObject player;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +24,13 @@ public class PlayerMovement : MonoBehaviour
         if(other.gameObject.tag == "ground"){
             isJumping = false;
             velocity.y = 0f;
+        }
+    }
+    void OnTriggerEnter(Collider other){
+        if(other.gameObject.tag == "Goal"){
+            if(myView.IsMine){
+                PhotonNetwork.Destroy(myView);
+            }
         }
     }
     // Update is called once per frame

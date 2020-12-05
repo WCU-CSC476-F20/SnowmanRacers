@@ -1,5 +1,4 @@
-﻿
-
+﻿using UnityEngine.UI;
 using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime; 
@@ -61,8 +60,17 @@ namespace Com.MyCompany.MyGame
         /// </summary>
         void Start()
         {
-           progressLabel.SetActive(false);
-           controlPanel.SetActive(true);
+            if(!PhotonNetwork.IsConnected){
+                progressLabel.SetActive(false);
+                levelPicker.SetActive(false);
+                controlPanel.SetActive(true);
+            }else{
+                controlPanel.SetActive(false);
+                progressLabel.SetActive(false);
+                levelPicker.SetActive(true);
+                backToPicker();
+            }
+           
         }
 
         #endregion
@@ -74,6 +82,8 @@ namespace Com.MyCompany.MyGame
         [Tooltip("The UI Label to inform the user that the connection is in progress")]
         [SerializeField]
         private GameObject progressLabel;
+        [SerializeField] private GameObject levelPicker;
+        [SerializeField] private Text playersJoined;
 
         /// <summary>
         /// Start the connection process.
@@ -115,6 +125,7 @@ namespace Com.MyCompany.MyGame
 
         public override void OnDisconnected(DisconnectCause cause)
         {   
+            levelPicker.SetActive(false);
             progressLabel.SetActive(false);
             controlPanel.SetActive(true);
             Debug.LogWarningFormat("PUN Basics Tutorial/Launcher: OnDisconnected() was called by PUN with reason {0}", cause);
@@ -133,12 +144,23 @@ namespace Com.MyCompany.MyGame
             // #Critical: We only load if we are the first player, else we rely on `PhotonNetwork.AutomaticallySyncScene` to sync our instance scene.
             if (PhotonNetwork.CurrentRoom.PlayerCount == 1)
             {
-                Debug.Log("We load the 'Room for 1' ");
-
-
+                //Debug.Log("We load the 'Room for 1' ");
+                controlPanel.SetActive(false);
+                progressLabel.SetActive(false);
+                levelPicker.SetActive(true);
+                playersJoined.text += "\n " + PlayerPrefs.GetString("PlayerName");
             // #Critical
             // Load the Room Level.
-                PhotonNetwork.LoadLevel("Room for 1");
+                //PhotonNetwork.LoadLevel("Lobby");
+            }
+        }
+        public void backToPicker(){
+            playersJoined.text += "\n " + PlayerPrefs.GetString("PlayerName");
+        }
+        public void StartLevelRun(string level){
+            if(PhotonNetwork.IsMasterClient){
+                GameManager.loadOnce = false;
+                PhotonNetwork.LoadLevel("Room for " + level);
             }
         }
 

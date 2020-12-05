@@ -137,7 +137,7 @@ MonoBehaviour:
   speed: 1
   jumpPower: 6
   runningJump: 20
-  maxSpeed: 5
+  maxSpeed: 10
   isJumping: 0
   rb: {fileID: 0}
 --- !u!114 &4522453104996536937
@@ -520,7 +520,7 @@ GameObject:
   - component: {fileID: 3809854891606132404}
   m_Layer: 8
   m_Name: Sphere
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -676,7 +676,7 @@ GameObject:
   - component: {fileID: 4218871230973128741}
   m_Layer: 8
   m_Name: Head
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -16,13 +16,20 @@ namespace Com.MyCompany.MyGame
     {
 
         #region Photon Callbacks
-
+        public static bool loadOnce = false;
 
         /// <summary>
         /// Called when the local player left the room. We need to load the launcher scene.
         /// </summary>
         public void Start(){
             PhotonNetwork.Instantiate("Sphere", new Vector3(0, 2, -8), Quaternion.identity, 0);
+        }
+        public void Update(){
+            Debug.Log("Player Objects: " + GameObject.FindGameObjectsWithTag("Player").Length);
+            if(GameObject.FindGameObjectsWithTag("Player").Length == 0 && !loadOnce){
+                loadOnce = true;
+                PhotonNetwork.LoadLevel("Launcher");
+            }
         }
         public override void OnLeftRoom()
         {
@@ -70,8 +77,8 @@ namespace Com.MyCompany.MyGame
             {
                 Debug.LogError("PhotonNetwork : Trying to Load a level but we are not the master Client");
             }
-            Debug.LogFormat("PhotonNetwork : Loading Level : {0}", PhotonNetwork.CurrentRoom.PlayerCount);
-            PhotonNetwork.LoadLevel("Room for " + PhotonNetwork.CurrentRoom.PlayerCount);
+            //Debug.LogFormat("PhotonNetwork : Loading Level : {0}", PhotonNetwork.CurrentRoom.PlayerCount);
+            //PhotonNetwork.LoadLevel("Room for " + PhotonNetwork.CurrentRoom.PlayerCount);
             
         }      
 
@@ -84,7 +91,7 @@ namespace Com.MyCompany.MyGame
 
         public void LeaveRoom()
         {
-            PhotonNetwork.LeaveRoom();
+            PhotonNetwork.Disconnect();
         }
 
 
