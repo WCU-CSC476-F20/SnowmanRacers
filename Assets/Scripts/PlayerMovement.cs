@@ -46,7 +46,7 @@ public class PlayerMovement : MonoBehaviour
                     velocity.x += -speed;
                     rb.velocity = velocity;
                 }
-                if(Input.GetKeyDown(KeyCode.W) /*&& !isJumping*/){
+                if(Input.GetKeyDown(KeyCode.W) && !isJumping){
                     isJumping = true;
                     velocity.y += jumpPower;   
                     rb.velocity = velocity;
