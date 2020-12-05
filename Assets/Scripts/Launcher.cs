@@ -9,6 +9,7 @@ namespace Com.MyCompany.MyGame
     public class Launcher : MonoBehaviourPunCallbacks
     {
 
+        [SerializeField] private GameObject controlPanel;
 
         #region Private Serializable Fields
 
@@ -64,22 +65,20 @@ namespace Com.MyCompany.MyGame
                 progressLabel.SetActive(false);
                 levelPicker.SetActive(false);
                 controlPanel.SetActive(true);
+                Debug.Log("Not Connected");
             }else{
                 controlPanel.SetActive(false);
                 progressLabel.SetActive(false);
                 levelPicker.SetActive(true);
                 backToPicker();
+                Debug.Log("already connected");
             }
-           
         }
 
         #endregion
 
         #region Public Methods
         [Tooltip("The Ui Panel to let the user enter name, connect and play")]
-        [SerializeField]
-        private GameObject controlPanel;
-        [Tooltip("The UI Label to inform the user that the connection is in progress")]
         [SerializeField]
         private GameObject progressLabel;
         [SerializeField] private GameObject levelPicker;
@@ -141,27 +140,28 @@ namespace Com.MyCompany.MyGame
 
         public override void OnJoinedRoom()
         {
-            // #Critical: We only load if we are the first player, else we rely on `PhotonNetwork.AutomaticallySyncScene` to sync our instance scene.
-            if (PhotonNetwork.CurrentRoom.PlayerCount == 1)
-            {
-                //Debug.Log("We load the 'Room for 1' ");
-                controlPanel.SetActive(false);
-                progressLabel.SetActive(false);
-                levelPicker.SetActive(true);
-                playersJoined.text += "\n " + PlayerPrefs.GetString("PlayerName");
-            // #Critical
-            // Load the Room Level.
-                //PhotonNetwork.LoadLevel("Lobby");
+            controlPanel.SetActive(false);
+            progressLabel.SetActive(false);
+            levelPicker.SetActive(true);
+            for(int i = 0; i < PhotonNetwork.PlayerList.Length; i++){
+                playersJoined.text += "\n " + PhotonNetwork.PlayerList[i]; 
             }
         }
         public void backToPicker(){
-            playersJoined.text += "\n " + PlayerPrefs.GetString("PlayerName");
+            for(int i = 0; i < PhotonNetwork.PlayerList.Length; i++){
+                playersJoined.text += "\n " + PhotonNetwork.PlayerList[i]; 
+            }
         }
         public void StartLevelRun(string level){
-            if(PhotonNetwork.IsMasterClient){
+            //if(PhotonNetwork.IsMasterClient){
                 GameManager.loadOnce = false;
                 PhotonNetwork.LoadLevel("Room for " + level);
-            }
+            //}
+        }
+        public void LeaveRoom()
+        {
+            playersJoined.text = "Players Joined: \n";
+            PhotonNetwork.Disconnect();
         }
 
 
