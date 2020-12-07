@@ -37,22 +37,17 @@ public class GameManager : MonoBehaviourPunCallbacks
             roundOver.SetActive(false);
             timeZone.SetActive(true);
             Time.timeScale = 1f;
-            if (PhotonNetwork.IsMasterClient)
-            {
+            
+
+            if(PhotonNetwork.IsMasterClient){
                 CustomeValue = new ExitGames.Client.Photon.Hashtable();
                 timer = 0;
-                startTimer = true;
                 CustomeValue.Add("StartTime", timer);
                 PhotonNetwork.CurrentRoom.SetCustomProperties(CustomeValue);
-            }
-            else
-            {
+            }else{
                 timer = double.Parse(PhotonNetwork.CurrentRoom.CustomProperties["StartTime"].ToString());
-                startTimer = true;
             }
-            if(timer == 0){
-                timer = 0;
-            }
+            
             tempTime = timer + 30f;
             if(place == 0){
                 place = 0;
