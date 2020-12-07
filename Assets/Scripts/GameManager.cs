@@ -21,6 +21,8 @@ public class GameManager : MonoBehaviourPunCallbacks
         public GameObject countdown;
         public GameObject roundOver;
         public GameObject timeZone;
+        public GameObject theGoal;
+        public Collider theGoalCol;
         public static float timer = 0;
         public int allPlayers = 1;
         public float tempTime;
@@ -36,7 +38,8 @@ public class GameManager : MonoBehaviourPunCallbacks
             roundOver.SetActive(false);
             timeZone.SetActive(true);
             Time.timeScale = 1f;
-
+            theGoal = GameObject.FindGameObjectWithTag("Goal");
+            theGoalCol = theGoal.GetComponent<Collider>();
             timer = 0;
             tempTime = timer + 30f;
             if(place == 0){
@@ -55,7 +58,17 @@ public class GameManager : MonoBehaviourPunCallbacks
             timer += Time.deltaTime;
             uitTimer.text = timer.ToString("F2");
             
-            
+            GameObject[] dos = GameObject.FindGameObjectsWithTag("Player");
+            foreach(GameObject pTemp in dos){
+                Collider tempCol = pTemp.GetComponent<Collider>();
+                if(tempCol.bounds.Intersects(theGoalCol.bounds)){
+                    PhotonView tempView = pTemp.GetPhotonView();
+                    theLeaderboard.text += tempView.Owner.NickName + "\n";
+                    theTimes.text += timer.ToString("F2") + "\n";
+                    Destroy(pTemp);
+                }
+                
+            }
 
             if(allPlayers < GameObject.FindGameObjectsWithTag("Player").Length){
                 allPlayers = GameObject.FindGameObjectsWithTag("Player").Length;

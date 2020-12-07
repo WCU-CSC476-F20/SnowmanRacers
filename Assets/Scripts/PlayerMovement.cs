@@ -28,7 +28,7 @@ public class PlayerMovement : MonoBehaviour
             velocity.y = 0f;
         }
     }
-    void OnTriggerEnter(Collider other){
+    /*void OnTriggerEnter(Collider other){
         if(other.gameObject.tag == "Goal"){
             if(myView.IsMine){
                 if(isColliding)return;
@@ -45,7 +45,7 @@ public class PlayerMovement : MonoBehaviour
                 PhotonNetwork.Destroy(myView);
             }
         }
-    }
+    }*/
     // Update is called once per frame
     void Update()
     {
