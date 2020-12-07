@@ -58,10 +58,8 @@ public class GameManager : MonoBehaviourPunCallbacks
             
             GameObject[] dos = GameObject.FindGameObjectsWithTag("Player");
             foreach(GameObject pTemp in dos){
-                Collider tempCol = pTemp.GetComponent<Collider>();
-                if(tempCol.bounds.Intersects(theGoalCol.bounds)){
+                if(theGoalCol.bounds.Contains(pTemp.transform.position)){
                     Debug.Log("Someone Hit the Goal");
-                    pTemp.transform.position += new Vector3(5f,0,0);
                     PhotonView tempView = pTemp.GetPhotonView();
                     theLeaderboard.text += tempView.Owner.NickName + "\n";
                     theTimes.text += timer.ToString("F2") + "\n";
