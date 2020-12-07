@@ -231,6 +231,63 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 711876565473296668, guid: 204096df8e53de440b4dd153fdc557d0, type: 3}
   m_PrefabInstance: {fileID: 711876565375525284}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &745320482
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1820420353854493923, guid: 1a3be1ea0cc2a224d95c759503da43f4, type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1820420353854493923, guid: 1a3be1ea0cc2a224d95c759503da43f4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 32.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1820420353854493923, guid: 1a3be1ea0cc2a224d95c759503da43f4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1820420353854493923, guid: 1a3be1ea0cc2a224d95c759503da43f4, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -8.308
+      objectReference: {fileID: 0}
+    - target: {fileID: 1820420353854493923, guid: 1a3be1ea0cc2a224d95c759503da43f4, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1820420353854493923, guid: 1a3be1ea0cc2a224d95c759503da43f4, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1820420353854493923, guid: 1a3be1ea0cc2a224d95c759503da43f4, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1820420353854493923, guid: 1a3be1ea0cc2a224d95c759503da43f4, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1820420353854493923, guid: 1a3be1ea0cc2a224d95c759503da43f4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1820420353854493923, guid: 1a3be1ea0cc2a224d95c759503da43f4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1820420353854493923, guid: 1a3be1ea0cc2a224d95c759503da43f4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1820420353854493927, guid: 1a3be1ea0cc2a224d95c759503da43f4, type: 3}
+      propertyPath: m_Name
+      value: Goal
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1a3be1ea0cc2a224d95c759503da43f4, type: 3}
 --- !u!1 &840349473 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 711876565074744965, guid: 204096df8e53de440b4dd153fdc557d0, type: 3}
@@ -683,9 +740,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7362077312000651998, guid: 52bff22fb29ebe14e838c8151f7d1e52, type: 3}
+      propertyPath: tempTime
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 7362077312000651998, guid: 52bff22fb29ebe14e838c8151f7d1e52, type: 3}
       propertyPath: theTimes
       value: 
       objectReference: {fileID: 711876565375525285}
+    - target: {fileID: 7362077312000651998, guid: 52bff22fb29ebe14e838c8151f7d1e52, type: 3}
+      propertyPath: timeLeft
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 7362077312000651998, guid: 52bff22fb29ebe14e838c8151f7d1e52, type: 3}
       propertyPath: timeZone
       value: 
@@ -702,6 +767,10 @@ PrefabInstance:
       propertyPath: roundOver
       value: 
       objectReference: {fileID: 466886840}
+    - target: {fileID: 7362077312000651998, guid: 52bff22fb29ebe14e838c8151f7d1e52, type: 3}
+      propertyPath: allPlayers
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7362077312000651998, guid: 52bff22fb29ebe14e838c8151f7d1e52, type: 3}
       propertyPath: uitTimerLeft
       value: 

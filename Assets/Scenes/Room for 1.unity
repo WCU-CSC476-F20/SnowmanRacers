@@ -763,9 +763,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7362077312000651998, guid: 52bff22fb29ebe14e838c8151f7d1e52, type: 3}
+      propertyPath: tempTime
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 7362077312000651998, guid: 52bff22fb29ebe14e838c8151f7d1e52, type: 3}
       propertyPath: theTimes
       value: 
       objectReference: {fileID: 1771019388}
+    - target: {fileID: 7362077312000651998, guid: 52bff22fb29ebe14e838c8151f7d1e52, type: 3}
+      propertyPath: timeLeft
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 7362077312000651998, guid: 52bff22fb29ebe14e838c8151f7d1e52, type: 3}
       propertyPath: timeZone
       value: 
@@ -782,6 +790,10 @@ PrefabInstance:
       propertyPath: roundOver
       value: 
       objectReference: {fileID: 105770216}
+    - target: {fileID: 7362077312000651998, guid: 52bff22fb29ebe14e838c8151f7d1e52, type: 3}
+      propertyPath: allPlayers
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7362077312000651998, guid: 52bff22fb29ebe14e838c8151f7d1e52, type: 3}
       propertyPath: uitTimerLeft
       value: 

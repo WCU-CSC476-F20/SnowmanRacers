@@ -36,33 +36,38 @@ public class GameManager : MonoBehaviourPunCallbacks
             timeZone.SetActive(true);
             Time.timeScale = 1f;
             timer = 0;
+            tempTime = 30f;
             place = 0;
             if(names != null){
                 Array.Clear(names, 0, names.Length);
-            }
-            Invoke("GetPlayerCount", 1f);
+            } 
             PhotonNetwork.Instantiate("Snowman", new Vector3(0, 2, -8), Quaternion.identity, 0);
-        }
-        public void GetPlayerCount(){
             allPlayers = GameObject.FindGameObjectsWithTag("Player").Length;
         }
         public void Update(){
             timer += Time.deltaTime;
             uitTimer.text = timer.ToString("F2");
-            
-            if(allPlayers < GameObject.FindGameObjectsWithTag("Player").Length && GameObject.FindGameObjectsWithTag("Player").Length != 0){
+            if(allPlayers < GameObject.FindGameObjectsWithTag("Player").Length){
+                allPlayers = GameObject.FindGameObjectsWithTag("Player").Length;
+                Debug.Log("allPlayers less than objects found");
+            }
+            if(allPlayers > GameObject.FindGameObjectsWithTag("Player").Length && GameObject.FindGameObjectsWithTag("Player").Length != 0){
                 //Debug.Log("Goal.goalMet = " + Goal.goalMet);
                 countdown.SetActive(true);
                 timeLeft = tempTime - timer;
                 uitTimerLeft.text = timeLeft.ToString("F2");
+                Debug.Log("allPlayers greater than objects found");
             }else{
                 tempTime = timer + 30f;
             }
             if(timeLeft <= 0f){
-                //GameObject[] gos = GameObject.FindGameObjectsWithTag("Player");
-                //foreach(GameObject pTemp in gos){
-                //    Destroy(pTemp);
-                //}
+                GameObject[] gos = GameObject.FindGameObjectsWithTag("Player");
+                foreach(GameObject pTemp in gos){
+                    PhotonView tempView = pTemp.GetPhotonView();
+                    theLeaderboard.text += tempView.Owner.NickName + "\n";
+                    theTimes.text += "DNF\n";
+                    Destroy(pTemp);
+                }
             }
             
             //Debug.Log("Player Objects: " + GameObject.FindGameObjectsWithTag("Player").Length);
@@ -83,6 +88,8 @@ public class GameManager : MonoBehaviourPunCallbacks
         public void GoToLobby(){
             if(PhotonNetwork.IsMasterClient){
                 Goal.goalMet = false;
+                theLeaderboard.text = "";
+                theTimes.text = "";
                 PhotonNetwork.LoadLevel("Launcher");
             }
         }
