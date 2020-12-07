@@ -42,7 +42,7 @@ public class PlayerMovement : MonoBehaviour
                 Debug.Log("Sent Time");
                 GameManager.place++;
                 Debug.Log("GameManager.place = " + GameManager.place.ToString());*/
-                myView.RPC("FinishedRace", RpcTarget.AllViaServer, myView.Owner.NickName, GameManager.timer.ToString("F2"));
+                myView.RPC("FinishedRace", RpcTarget.All, myView.Owner.NickName, GameManager.timer.ToString("F2"));
                 PhotonNetwork.Destroy(myView);
             }
         }
