@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviourPunCallbacks
         public GameObject countdown;
         public GameObject roundOver;
         public GameObject timeZone;
-        public static float timer;
+        public static float timer = 0;
         public int allPlayers = 1;
         public float tempTime;
         public float timeLeft = 30f;
@@ -35,9 +35,13 @@ public class GameManager : MonoBehaviourPunCallbacks
             roundOver.SetActive(false);
             timeZone.SetActive(true);
             Time.timeScale = 1f;
-            timer = 0;
-            tempTime = 30f;
-            place = 0;
+            if(timer == 0){
+                timer = 0;
+            }    
+            tempTime = timer + 30f;
+            if(place == 0){
+                place = 0;
+            }    
             if(names != null){
                 Array.Clear(names, 0, names.Length);
             } 
@@ -47,10 +51,12 @@ public class GameManager : MonoBehaviourPunCallbacks
         public void Update(){
             timer += Time.deltaTime;
             uitTimer.text = timer.ToString("F2");
+
             if(allPlayers < GameObject.FindGameObjectsWithTag("Player").Length){
                 allPlayers = GameObject.FindGameObjectsWithTag("Player").Length;
                 Debug.Log("allPlayers less than objects found");
             }
+
             if(allPlayers > GameObject.FindGameObjectsWithTag("Player").Length && GameObject.FindGameObjectsWithTag("Player").Length != 0){
                 //Debug.Log("Goal.goalMet = " + Goal.goalMet);
                 countdown.SetActive(true);
@@ -60,7 +66,15 @@ public class GameManager : MonoBehaviourPunCallbacks
             }else{
                 tempTime = timer + 30f;
             }
+
             if(timeLeft <= 0f){
+                loadOnce = true;
+                for(int i = 0; i < names.Length; i++){
+                    if(names[i] != null){
+                        theLeaderboard.text += (i+1) + ". " + names[i] + "\n";
+                        theTimes.text += times[i] + "\n";
+                    }
+                }
                 GameObject[] gos = GameObject.FindGameObjectsWithTag("Player");
                 foreach(GameObject pTemp in gos){
                     PhotonView tempView = pTemp.GetPhotonView();

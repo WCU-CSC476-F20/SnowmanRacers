@@ -77,7 +77,7 @@ namespace Com.MyCompany.MyGame
             }
         }
         void Update(){
-            if(temp < PhotonNetwork.PlayerList.Length){
+            if(temp != PhotonNetwork.PlayerList.Length){
                 temp = PhotonNetwork.PlayerList.Length;
                 backToPicker();
             }
@@ -157,8 +157,8 @@ namespace Com.MyCompany.MyGame
             }
         }
         public void backToPicker(){
+            playersJoined.text = "Players Joined: \n";
             for(int i = 0; i < PhotonNetwork.PlayerList.Length; i++){
-                playersJoined.text = "Players Joined: \n";
                 playersJoined.text += "\n " + PhotonNetwork.PlayerList[i]; 
             }
         }
