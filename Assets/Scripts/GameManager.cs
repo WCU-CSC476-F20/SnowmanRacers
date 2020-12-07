@@ -43,16 +43,19 @@ public class GameManager : MonoBehaviourPunCallbacks
             tempTime = timer + 30f;
             if(place == 0){
                 place = 0;
-            }    
+            }
             if(names != null){
                 Array.Clear(names, 0, names.Length);
-            } 
+            }
             PhotonNetwork.Instantiate("Snowman", new Vector3(0, 2, -8), Quaternion.identity, 0);
             allPlayers = GameObject.FindGameObjectsWithTag("Player").Length;
         }
         public void Update(){
-            timer += Time.deltaTime;
-            uitTimer.text = timer.ToString("F2");
+            if(PhotonNetwork.IsMasterClient){
+                timer += Time.deltaTime;
+                uitTimer.text = timer.ToString("F2");
+            }
+            
 
             if(allPlayers < GameObject.FindGameObjectsWithTag("Player").Length){
                 allPlayers = GameObject.FindGameObjectsWithTag("Player").Length;
