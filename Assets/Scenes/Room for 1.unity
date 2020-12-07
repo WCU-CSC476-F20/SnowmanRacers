@@ -258,7 +258,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 711876564310863485, guid: 204096df8e53de440b4dd153fdc557d0, type: 3}
   m_PrefabInstance: {fileID: 105770215}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 105770222}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
@@ -280,6 +280,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &105770222 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 711876564310863475, guid: 204096df8e53de440b4dd153fdc557d0, type: 3}
+  m_PrefabInstance: {fileID: 105770215}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &105770223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 105770222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  observableSearch: 2
+  Synchronization: 3
+  OwnershipTransfer: 0
+  ObservedComponents: []
+  viewIdField: 4
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &375437918
 GameObject:
   m_ObjectHideFlags: 0
@@ -714,6 +741,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -8498954235763636093, guid: 52bff22fb29ebe14e838c8151f7d1e52, type: 3}
+      propertyPath: viewIdField
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4424623465220983607, guid: 52bff22fb29ebe14e838c8151f7d1e52, type: 3}
       propertyPath: m_Name
       value: Game Manager
