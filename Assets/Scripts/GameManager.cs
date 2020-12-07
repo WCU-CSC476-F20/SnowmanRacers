@@ -109,6 +109,7 @@ public class GameManager : MonoBehaviourPunCallbacks
                 Goal.goalMet = false;
                 theLeaderboard.text = "";
                 theTimes.text = "";
+                PhotonNetwork.CurrentRoom.IsOpen = true;
                 PhotonNetwork.LoadLevel("Launcher");
             }
         }
