@@ -30,7 +30,6 @@ public class GameManager : MonoBehaviourPunCallbacks
         public static string[] names = new string[4];
         public static string[] times = new string[4];
         public static int place;
-        public bool spawnMe = true;
 
         /// Called when the local player left the room. We need to load the launcher scene.
         public void Start(){
@@ -48,10 +47,9 @@ public class GameManager : MonoBehaviourPunCallbacks
             if(names != null){
                 Array.Clear(names, 0, names.Length);
             }
-            if(spawnMe){
-                PhotonNetwork.Instantiate("Snowman", new Vector3(0, 2, -8), Quaternion.identity, 0);
-                allPlayers = GameObject.FindGameObjectsWithTag("Player").Length;
-            }
+            PhotonNetwork.Instantiate("Snowman", new Vector3(0, 0, -8), Quaternion.identity, 0);
+            allPlayers = GameObject.FindGameObjectsWithTag("Player").Length;
+            
             PhotonNetwork.CurrentRoom.IsOpen = false;
         }
         public void Update(){
@@ -83,11 +81,6 @@ public class GameManager : MonoBehaviourPunCallbacks
                 Debug.Log("allPlayers greater than objects found");
             }else{
                 tempTime = timer + 30f;
-            }
-            if(names != null){
-                for(int i = 0; i < names.Length; i++){
-                    Debug.Log("Names[" + i + "] = " + names[i] + "\n");
-                }
             }
             if(timeLeft <= 0f){
                 loadOnce = true;
