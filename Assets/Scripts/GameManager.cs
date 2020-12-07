@@ -71,7 +71,7 @@ public class GameManager : MonoBehaviourPunCallbacks
 
             if(allPlayers < GameObject.FindGameObjectsWithTag("Player").Length){
                 allPlayers = GameObject.FindGameObjectsWithTag("Player").Length;
-                Debug.Log("allPlayers less than objects found");
+                //Debug.Log("allPlayers less than objects found");
             }
 
             if(allPlayers > GameObject.FindGameObjectsWithTag("Player").Length && GameObject.FindGameObjectsWithTag("Player").Length != 0){
@@ -79,7 +79,7 @@ public class GameManager : MonoBehaviourPunCallbacks
                 countdown.SetActive(true);
                 timeLeft = tempTime - timer;
                 uitTimerLeft.text = timeLeft.ToString("F2");
-                Debug.Log("allPlayers greater than objects found");
+                //Debug.Log("allPlayers greater than objects found");
             }else{
                 tempTime = timer + 30f;
             }
