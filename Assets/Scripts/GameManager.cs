@@ -47,7 +47,7 @@ public class GameManager : MonoBehaviourPunCallbacks
             if(names != null){
                 Array.Clear(names, 0, names.Length);
             }
-            PhotonNetwork.Instantiate("Snowman", new Vector3(0, 0, -8), Quaternion.identity, 0);
+            PhotonNetwork.Instantiate("Snowman", new Vector3(0, 1, -8), Quaternion.identity, 0);
             allPlayers = GameObject.FindGameObjectsWithTag("Player").Length;
             
             PhotonNetwork.CurrentRoom.IsOpen = false;
