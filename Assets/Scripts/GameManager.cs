@@ -60,6 +60,7 @@ public class GameManager : MonoBehaviourPunCallbacks
             foreach(GameObject pTemp in dos){
                 Collider tempCol = pTemp.GetComponent<Collider>();
                 if(tempCol.bounds.Intersects(theGoalCol.bounds)){
+                    Debug.Log("Someone Hit the Goal");
                     PhotonView tempView = pTemp.GetPhotonView();
                     theLeaderboard.text += tempView.Owner.NickName + "\n";
                     theTimes.text += timer.ToString("F2") + "\n";
