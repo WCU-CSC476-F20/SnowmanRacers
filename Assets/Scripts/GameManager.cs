@@ -71,7 +71,11 @@ public class GameManager : MonoBehaviourPunCallbacks
             }else{
                 tempTime = timer + 30f;
             }
-
+            if(names != null){
+                for(int i = 0; i < names.Length; i++){
+                    Debug.Log("Names[" + i + "] = " + names[i] + "\n");
+                }
+            }
             if(timeLeft <= 0f){
                 loadOnce = true;
                 for(int i = 0; i < names.Length; i++){

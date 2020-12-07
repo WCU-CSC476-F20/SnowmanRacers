@@ -14,8 +14,7 @@ public class PlayerMovement : MonoBehaviour
     public bool isJumping = false; 
     public bool isColliding = false;
     public Rigidbody rb;
-    PhotonView myView;
-    GameObject player;
+    [SerializeField] PhotonView myView;
     // Start is called before the first frame update
     void Start()
     {
