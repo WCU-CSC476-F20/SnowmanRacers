@@ -56,7 +56,7 @@ public class GameManager : MonoBehaviourPunCallbacks
             timer += Time.deltaTime;
             uitTimer.text = timer.ToString("F2");
             
-            GameObject[] dos = GameObject.FindGameObjectsWithTag("Player");
+            /*GameObject[] dos = GameObject.FindGameObjectsWithTag("Player");
             foreach(GameObject pTemp in dos){
                 if(theGoalCol.bounds.Contains(pTemp.transform.position)){
                     Debug.Log("Someone Hit the Goal");
@@ -66,7 +66,7 @@ public class GameManager : MonoBehaviourPunCallbacks
                     Destroy(pTemp);
                 }
                 
-            }
+            }*/
 
             if(allPlayers < GameObject.FindGameObjectsWithTag("Player").Length){
                 allPlayers = GameObject.FindGameObjectsWithTag("Player").Length;

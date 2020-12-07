@@ -28,12 +28,12 @@ public class PlayerMovement : MonoBehaviour
             velocity.y = 0f;
         }
     }
-    /*void OnTriggerEnter(Collider other){
+    void OnTriggerEnter(Collider other){
         if(other.gameObject.tag == "Goal"){
             if(myView.IsMine){
                 if(isColliding)return;
                 isColliding = true;
-                Debug.Log("Entered the goal");
+                /*Debug.Log("Entered the goal");
                 
                 Debug.Log(GameManager.place);
                 GameManager.names[GameManager.place] = myView.Owner.NickName;
@@ -41,11 +41,12 @@ public class PlayerMovement : MonoBehaviour
                 GameManager.times[GameManager.place] = GameManager.timer.ToString("F2");
                 Debug.Log("Sent Time");
                 GameManager.place++;
-                Debug.Log("GameManager.place = " + GameManager.place.ToString());
+                Debug.Log("GameManager.place = " + GameManager.place.ToString());*/
+                myView.RPC("FinishedRace", RpcTarget.AllViaServer, myView.Owner.NickName, GameManager.timer.ToString("F2"));
                 PhotonNetwork.Destroy(myView);
             }
         }
-    }*/
+    }
     // Update is called once per frame
     void Update()
     {
@@ -104,5 +105,12 @@ public class PlayerMovement : MonoBehaviour
                 }    
             }    
         }        
-    }   
+    }
+
+    [PunRPC]
+    void FinishedRace(string a, string b){
+        GameManager.names[GameManager.place] = a;
+        GameManager.times[GameManager.place] = b;
+        GameManager.place++;
+    }  
 }
