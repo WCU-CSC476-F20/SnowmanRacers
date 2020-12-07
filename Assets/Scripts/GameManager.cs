@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviourPunCallbacks
         public GameObject roundOver;
         public GameObject timeZone;
         public static float timer;
+        public int allPlayers = 1;
         public float tempTime;
         public float timeLeft = 30f;
         public static string[] names = new string[4];
@@ -39,8 +40,11 @@ public class GameManager : MonoBehaviourPunCallbacks
             if(names != null){
                 Array.Clear(names, 0, names.Length);
             }
-            
+            Invoke("GetPlayerCount", 1f);
             PhotonNetwork.Instantiate("Snowman", new Vector3(0, 2, -8), Quaternion.identity, 0);
+        }
+        public void GetPlayerCount(){
+            allPlayers = GameObject.FindGameObjectsWithTag("Player").Length;
         }
         public void Update(){
             timer += Time.deltaTime;

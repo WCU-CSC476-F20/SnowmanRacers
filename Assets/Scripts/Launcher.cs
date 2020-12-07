@@ -9,6 +9,7 @@ namespace Com.MyCompany.MyGame
     public class Launcher : MonoBehaviourPunCallbacks
     {
 
+        int temp = 1;
         [SerializeField] private GameObject controlPanel;
 
         #region Private Serializable Fields
@@ -70,8 +71,15 @@ namespace Com.MyCompany.MyGame
                 controlPanel.SetActive(false);
                 progressLabel.SetActive(false);
                 levelPicker.SetActive(true);
+                temp = PhotonNetwork.PlayerList.Length;
                 backToPicker();
                 Debug.Log("already connected");
+            }
+        }
+        void Update(){
+            if(temp < PhotonNetwork.PlayerList.Length){
+                temp = PhotonNetwork.PlayerList.Length;
+                backToPicker();
             }
         }
 
@@ -143,12 +151,14 @@ namespace Com.MyCompany.MyGame
             controlPanel.SetActive(false);
             progressLabel.SetActive(false);
             levelPicker.SetActive(true);
+            temp = PhotonNetwork.PlayerList.Length;
             for(int i = 0; i < PhotonNetwork.PlayerList.Length; i++){
                 playersJoined.text += "\n " + PhotonNetwork.PlayerList[i]; 
             }
         }
         public void backToPicker(){
             for(int i = 0; i < PhotonNetwork.PlayerList.Length; i++){
+                playersJoined.text = "Players Joined: \n";
                 playersJoined.text += "\n " + PhotonNetwork.PlayerList[i]; 
             }
         }

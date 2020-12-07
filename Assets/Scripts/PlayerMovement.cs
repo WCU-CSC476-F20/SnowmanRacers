@@ -22,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         myView = GetComponent<PhotonView>();
     }
+
     void OnCollisionStay(Collision other){
         if(other.gameObject.tag == "ground"){
             isJumping = false;
@@ -51,30 +52,14 @@ public class PlayerMovement : MonoBehaviour
     {
         if(myView.IsMine){
             if(Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.A)){
-                if(Input.GetKey(KeyCode.D)){
-                    velocity.x += speed;
-                    rb.velocity = velocity;
-                }    
-                if(Input.GetKey(KeyCode.A)){
-                    velocity.x += -speed;
-                    rb.velocity = velocity;
-                }
                 if(Input.GetKeyDown(KeyCode.W) && !isJumping){
                     isJumping = true;
                     velocity.y += jumpPower;   
                     rb.velocity = velocity;
                 }else if(isJumping){
-                    velocity.y += -.05f;
+                    velocity.y += -.04f;
                     rb.velocity = velocity;
                 }
-            }else{
-                if(velocity.x > 0){
-                    velocity.x -= speed;
-                    rb.velocity = velocity;
-                }else if(velocity.x < 0){
-                    velocity.x += speed;
-                    rb.velocity = velocity;
-                }    
             }
         
             if(Input.GetKey(KeyCode.W) && !isJumping){
@@ -93,4 +78,32 @@ public class PlayerMovement : MonoBehaviour
         }
 
     }
+    void FixedUpdate(){
+        if(myView.IsMine){
+            if(Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.A)){
+                if(Input.GetKey(KeyCode.D)){
+                    velocity.x += speed;
+                    //if(isJumping){
+                    //    velocity.y += -.04f;
+                    //}
+                    rb.velocity = velocity;
+                }    
+                if(Input.GetKey(KeyCode.A)){
+                    velocity.x += -speed;
+                    //if(isJumping){
+                    //    velocity.y += -.04f;
+                    //}
+                    rb.velocity = velocity;
+                }
+            }else{
+                if(velocity.x > 0){
+                    velocity.x -= speed;
+                    rb.velocity = velocity;
+                }else if(velocity.x < 0){
+                    velocity.x += speed;
+                    rb.velocity = velocity;
+                }    
+            }    
+        }        
+    }   
 }
