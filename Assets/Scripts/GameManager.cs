@@ -50,7 +50,7 @@ public class GameManager : MonoBehaviourPunCallbacks
             timer += Time.deltaTime;
             uitTimer.text = timer.ToString("F2");
             
-            if(Goal.goalMet && GameObject.FindGameObjectsWithTag("Player").Length != 0){
+            if(allPlayers < GameObject.FindGameObjectsWithTag("Player").Length && GameObject.FindGameObjectsWithTag("Player").Length != 0){
                 //Debug.Log("Goal.goalMet = " + Goal.goalMet);
                 countdown.SetActive(true);
                 timeLeft = tempTime - timer;
