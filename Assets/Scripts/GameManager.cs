@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviourPunCallbacks
         public GameObject countdown;
         public GameObject roundOver;
         public GameObject timeZone;
-        public float timer = 0;
+        public static float timer = 0;
         public int allPlayers = 1;
         public float tempTime;
         public float timeLeft = 30;
