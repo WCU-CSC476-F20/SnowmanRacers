@@ -555,6 +555,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 105770223, guid: 204096df8e53de440b4dd153fdc557d0, type: 3}
+      propertyPath: viewIdField
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 711876563846688459, guid: 204096df8e53de440b4dd153fdc557d0, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -691,6 +695,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -8498954235763636093, guid: 52bff22fb29ebe14e838c8151f7d1e52, type: 3}
+      propertyPath: viewIdField
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4424623465220983607, guid: 52bff22fb29ebe14e838c8151f7d1e52, type: 3}
       propertyPath: m_Name
       value: Game Manager

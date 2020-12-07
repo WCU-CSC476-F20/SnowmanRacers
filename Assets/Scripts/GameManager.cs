@@ -28,8 +28,7 @@ public class GameManager : MonoBehaviourPunCallbacks
         public static string[] names = new string[4];
         public static string[] times = new string[4];
         public static int place;
-        public bool startTimer;
-        ExitGames.Client.Photon.Hashtable CustomeValue;
+        public bool spawnMe = true;
 
         /// Called when the local player left the room. We need to load the launcher scene.
         public void Start(){
@@ -39,7 +38,6 @@ public class GameManager : MonoBehaviourPunCallbacks
             Time.timeScale = 1f;
 
             timer = 0;
-            
             tempTime = timer + 30f;
             if(place == 0){
                 place = 0;
@@ -47,14 +45,16 @@ public class GameManager : MonoBehaviourPunCallbacks
             if(names != null){
                 Array.Clear(names, 0, names.Length);
             }
-            PhotonNetwork.Instantiate("Snowman", new Vector3(0, 2, -8), Quaternion.identity, 0);
-            allPlayers = GameObject.FindGameObjectsWithTag("Player").Length;
+            if(spawnMe){
+                PhotonNetwork.Instantiate("Snowman", new Vector3(0, 2, -8), Quaternion.identity, 0);
+                allPlayers = GameObject.FindGameObjectsWithTag("Player").Length;
+            }
+            
         }
         public void Update(){
-            if(PhotonNetwork.IsMasterClient){
-                timer += Time.deltaTime;
-                uitTimer.text = timer.ToString("F2");
-            }
+            timer += Time.deltaTime;
+            uitTimer.text = timer.ToString("F2");
+            
             
 
             if(allPlayers < GameObject.FindGameObjectsWithTag("Player").Length){
@@ -120,7 +120,11 @@ public class GameManager : MonoBehaviourPunCallbacks
     public override void OnPlayerEnteredRoom(Player other)
     {
         Debug.LogFormat("OnPlayerEnteredRoom() {0}", other.NickName); // not seen if you're the player connecting
-
+        if(PhotonNetwork.InLobby){
+            spawnMe = true;
+        }else{
+            spawnMe = false;
+        }
 
         if (PhotonNetwork.IsMasterClient)
         {
