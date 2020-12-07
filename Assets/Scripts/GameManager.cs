@@ -59,7 +59,12 @@ public class GameManager : MonoBehaviourPunCallbacks
             allPlayers = GameObject.FindGameObjectsWithTag("Player").Length;
         }
         public void Update(){
-            timer += Time.deltaTime;
+            if(PhotonNetwork.IsMasterClient){
+                timer += Time.deltaTime;
+            }else{
+                timer = double.Parse(PhotonNetwork.CurrentRoom.CustomProperties["StartTime"].ToString());
+            }
+            
             uitTimer.text = timer.ToString("F2");
 
             if(allPlayers < GameObject.FindGameObjectsWithTag("Player").Length){
