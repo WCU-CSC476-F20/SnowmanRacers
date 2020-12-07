@@ -21,10 +21,10 @@ public class GameManager : MonoBehaviourPunCallbacks
         public GameObject countdown;
         public GameObject roundOver;
         public GameObject timeZone;
-        public static double timer = 0;
+        public float timer = 0;
         public int allPlayers = 1;
-        public double tempTime;
-        public double timeLeft = 30;
+        public float tempTime;
+        public float timeLeft = 30;
         public static string[] names = new string[4];
         public static string[] times = new string[4];
         public static int place;
@@ -37,16 +37,8 @@ public class GameManager : MonoBehaviourPunCallbacks
             roundOver.SetActive(false);
             timeZone.SetActive(true);
             Time.timeScale = 1f;
-            
 
-            if(PhotonNetwork.IsMasterClient){
-                CustomeValue = new ExitGames.Client.Photon.Hashtable();
-                timer = 0;
-                CustomeValue.Add("StartTime", timer);
-                PhotonNetwork.CurrentRoom.SetCustomProperties(CustomeValue);
-            }else{
-                timer = double.Parse(PhotonNetwork.CurrentRoom.CustomProperties["StartTime"].ToString());
-            }
+            timer = 0;
             
             tempTime = timer + 30f;
             if(place == 0){
@@ -59,12 +51,7 @@ public class GameManager : MonoBehaviourPunCallbacks
             allPlayers = GameObject.FindGameObjectsWithTag("Player").Length;
         }
         public void Update(){
-            if(PhotonNetwork.IsMasterClient){
-                timer += Time.deltaTime;
-            }else{
-                timer = double.Parse(PhotonNetwork.CurrentRoom.CustomProperties["StartTime"].ToString());
-            }
-            
+            timer += Time.deltaTime;
             uitTimer.text = timer.ToString("F2");
 
             if(allPlayers < GameObject.FindGameObjectsWithTag("Player").Length){
