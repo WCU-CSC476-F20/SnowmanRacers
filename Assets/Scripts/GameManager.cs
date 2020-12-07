@@ -49,7 +49,7 @@ public class GameManager : MonoBehaviourPunCallbacks
                 PhotonNetwork.Instantiate("Snowman", new Vector3(0, 2, -8), Quaternion.identity, 0);
                 allPlayers = GameObject.FindGameObjectsWithTag("Player").Length;
             }
-            
+            PhotonNetwork.CurrentRoom.IsOpen = false;
         }
         public void Update(){
             timer += Time.deltaTime;
@@ -120,11 +120,6 @@ public class GameManager : MonoBehaviourPunCallbacks
     public override void OnPlayerEnteredRoom(Player other)
     {
         Debug.LogFormat("OnPlayerEnteredRoom() {0}", other.NickName); // not seen if you're the player connecting
-        if(PhotonNetwork.InLobby){
-            spawnMe = true;
-        }else{
-            spawnMe = false;
-        }
 
         if (PhotonNetwork.IsMasterClient)
         {
