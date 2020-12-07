@@ -790,9 +790,29 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7362077312000651998, guid: 52bff22fb29ebe14e838c8151f7d1e52, type: 3}
   m_PrefabInstance: {fileID: 7362077312000651996}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 7362077312000651998}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a28534264c42af24198760e482934024, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &7362077312000651998 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4424623465220983607, guid: 52bff22fb29ebe14e838c8151f7d1e52, type: 3}
+  m_PrefabInstance: {fileID: 7362077312000651996}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7362077312000651999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7362077312000651998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eda4584653d4e444fb3f82b4094c1c81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myCamera: {fileID: 1365717609}
+  thePlayer: {fileID: 0}
+  playerPos: {x: 0, y: 0, z: 0}
