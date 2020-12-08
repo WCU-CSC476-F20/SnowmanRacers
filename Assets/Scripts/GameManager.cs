@@ -83,18 +83,20 @@ public class GameManager : MonoBehaviourPunCallbacks
                 timeZone.SetActive(false);
                 roundOver.SetActive(true);
                 Debug.Log("DNF event");
+                int temp4 = 0;
                 int temp3 = 0;
                 for(int o = 0; o < names.Length; o++){
-                    if(names[o] != null){
+                    if(PlayerPrefs.HasKey(names[o])){
                         if(PlayerPrefs.GetInt("Races") != 4){
                             theLeaderboard.text += (o+1) + ". " + names[o] + "\n";
                             theTimes.text += times[o].ToString("F2") + "\n";
                             Debug.Log("i = " +o );
                         }
                         PlayerPrefs.SetFloat(names[o], PlayerPrefs.GetFloat(names[o]) + times[o]);
-                    }
-                    temp3 = o;
+                        temp4++;
+                    }  
                 }
+                temp3 = temp4;
                 GameObject[] gos = GameObject.FindGameObjectsWithTag("Player");
                 for(int i = 0; i < gos.Length; i++){
                     PhotonView tempView = gos[i].GetPhotonView();
@@ -103,11 +105,14 @@ public class GameManager : MonoBehaviourPunCallbacks
                         theLeaderboard.text += tempView.Owner.NickName + "\n";
                         theTimes.text += "DNF\n";
                     }
+                    Debug.Log("temp3 = " + temp3);
                     names[temp3] = tempView.Owner.NickName;
                     temp3++;
                     
                     PlayerPrefs.SetFloat(tempView.Owner.NickName, PlayerPrefs.GetFloat(tempView.Owner.NickName) + times[0] + 60f);
                     PhotonNetwork.Destroy(gos[i]);
+                    Debug.Log("Destroyed : " + tempView.Owner.NickName);
+                    
                 }
                 
             }
