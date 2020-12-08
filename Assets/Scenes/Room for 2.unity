@@ -5882,17 +5882,61 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4956536738226484878, guid: 636c80307effa3b4c964173acf1df6a1, type: 3}
+      propertyPath: lengthInSec
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4956536738226484878, guid: 636c80307effa3b4c964173acf1df6a1, type: 3}
+      propertyPath: simulationSpeed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4956536738226484878, guid: 636c80307effa3b4c964173acf1df6a1, type: 3}
+      propertyPath: TrailModule.ratio
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4956536738226484878, guid: 636c80307effa3b4c964173acf1df6a1, type: 3}
+      propertyPath: TrailModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4956536738226484878, guid: 636c80307effa3b4c964173acf1df6a1, type: 3}
+      propertyPath: InitialModule.size3D
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4956536738226484878, guid: 636c80307effa3b4c964173acf1df6a1, type: 3}
+      propertyPath: LightsModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4956536738226484878, guid: 636c80307effa3b4c964173acf1df6a1, type: 3}
       propertyPath: ShapeModule.m_Scale.x
       value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 4956536738226484878, guid: 636c80307effa3b4c964173acf1df6a1, type: 3}
+      propertyPath: TrailModule.textureMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4956536738226484878, guid: 636c80307effa3b4c964173acf1df6a1, type: 3}
+      propertyPath: TrailModule.widthOverTrail.scalar
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4956536738226484878, guid: 636c80307effa3b4c964173acf1df6a1, type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
-      value: 50
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 4956536738226484878, guid: 636c80307effa3b4c964173acf1df6a1, type: 3}
+      propertyPath: EmissionModule.rateOverDistance.scalar
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4956536738226484879, guid: 636c80307effa3b4c964173acf1df6a1, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4956536738226484879, guid: 636c80307effa3b4c964173acf1df6a1, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 8d01eac798a59ce4f8f2e0818bdf305b, type: 2}
+    - target: {fileID: 4956536738226484879, guid: 636c80307effa3b4c964173acf1df6a1, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 636c80307effa3b4c964173acf1df6a1, type: 3}
 --- !u!1 &1783778420
