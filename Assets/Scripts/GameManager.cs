@@ -82,8 +82,8 @@ public class GameManager : MonoBehaviourPunCallbacks
                 countdown.SetActive(false);
                 timeZone.SetActive(false);
                 roundOver.SetActive(true);
-                int o;
-                for(o = 0; o < names.Length; o++){
+                int temp3 = 0;
+                for(int o = 0; o < names.Length; o++){
                     if(names[o] != null){
                         if(PlayerPrefs.GetInt("Races") != 4){
                             theLeaderboard.text += (o+1) + ". " + names[o] + "\n";
@@ -92,6 +92,7 @@ public class GameManager : MonoBehaviourPunCallbacks
                         }
                         PlayerPrefs.SetFloat(names[o], PlayerPrefs.GetFloat(names[o]) + times[o]);
                     }
+                    temp3 = o;
                 }
                 GameObject[] gos = GameObject.FindGameObjectsWithTag("Player");
                 foreach(GameObject pTemp in gos){
@@ -101,8 +102,8 @@ public class GameManager : MonoBehaviourPunCallbacks
                         theLeaderboard.text += tempView.Owner.NickName + "\n";
                         theTimes.text += "DNF\n";
                     }else{
-                        names[o] = tempView.Owner.NickName;
-                        o++;
+                        names[temp3] = tempView.Owner.NickName;
+                        temp3++;
                     }
                     PlayerPrefs.SetFloat(tempView.Owner.NickName, PlayerPrefs.GetFloat(tempView.Owner.NickName) + times[0] + 60f);
                     Destroy(pTemp);
