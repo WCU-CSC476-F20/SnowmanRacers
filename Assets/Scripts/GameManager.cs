@@ -71,7 +71,10 @@ public class GameManager : MonoBehaviourPunCallbacks
                 tempTime = timer + 30f;
             }
             if(timeLeft <= 0f){
+                roundOver.SetActive(true);
                 loadOnce = true;
+                countdown.SetActive(false);
+                timeZone.SetActive(false);
                 for(int i = 0; i < names.Length; i++){
                     if(names[i] != null){
                         theLeaderboard.text += (i+1) + ". " + names[i] + "\n";
