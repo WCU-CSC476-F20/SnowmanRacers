@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviourPunCallbacks
         public Text theLeaderboard;
         public Text theTimes;
         public Text playersLeft;
+        public Text raceResults;
         public GameObject countdown;
         public GameObject roundOver;
         public GameObject timeZone;
@@ -137,6 +138,7 @@ public class GameManager : MonoBehaviourPunCallbacks
                     }
                 }
                 if(finalFinish && !finalOnce){
+                    raceResults.text = "Final Times";
                     finalOnce = true;
                     int g = 1;
                     for(int b = 0; b < names.Length; b++){
