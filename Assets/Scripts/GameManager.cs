@@ -121,7 +121,8 @@ public class GameManager : MonoBehaviourPunCallbacks
         }
         public void GoNextLevel(){
             string curScene = SceneManager.GetActiveScene().name;
-            switch(curScene){
+            if(PhotonNetwork.IsMasterClient){
+                switch(curScene){
                 case "Room for 1":
                     PhotonNetwork.LoadLevel("Room for 2");
                     break;
@@ -134,7 +135,9 @@ public class GameManager : MonoBehaviourPunCallbacks
                 case "Room for 4":
                     PhotonNetwork.LoadLevel("Launcher");
                     break;
-            }            
+                } 
+            }
+                       
         }
         public override void OnLeftRoom()
         {
