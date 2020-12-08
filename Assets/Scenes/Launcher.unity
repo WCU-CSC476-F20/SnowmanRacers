@@ -2970,7 +2970,7 @@ MonoBehaviour:
 
     D: Move Right
 
-    W: Jump/Climb
+    W: Jump/Climb Snow
 
 
     The
@@ -2991,15 +2991,13 @@ MonoBehaviour:
 
 
     Avoid
-    all obstacles like lava pools, pits, and the nutcrackers.
-
-    If you fail to
-    avoid the obstacles you will be respawned at the start of the level.
+    all obstacles like lava pools and bottomless pits, if you fail to avoid the obstacles
+    you will be respawned at the start of the level.
 
 
-    Once
-    any player finishes the level, all other players will have 30 seconds to reach
-    the end before being marked as DNF (Did Not Finish).'
+    Once any player finishes
+    the level, all other players will have 30 seconds to reach the end before being
+    marked as DNF (Did Not Finish).'
 --- !u!222 &1363257101
 CanvasRenderer:
   m_ObjectHideFlags: 0
