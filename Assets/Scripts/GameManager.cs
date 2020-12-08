@@ -18,11 +18,11 @@ public class GameManager : MonoBehaviourPunCallbacks
         public Text uitTimerLeft;
         public Text theLeaderboard;
         public Text theTimes;
+        public Text playersLeft;
         public GameObject countdown;
         public GameObject roundOver;
         public GameObject timeZone;
-        public GameObject theGoal;
-        public Collider theGoalCol;
+        public GameObject leavers;
         public static float timer = 0;
         public int allPlayers = 1;
         public float tempTime;
@@ -35,10 +35,9 @@ public class GameManager : MonoBehaviourPunCallbacks
         public void Start(){
             countdown.SetActive(false);
             roundOver.SetActive(false);
+            leavers.SetActive(false);
             timeZone.SetActive(true);
             Time.timeScale = 1f;
-            theGoal = GameObject.FindGameObjectWithTag("Goal");
-            theGoalCol = theGoal.GetComponent<Collider>();
             timer = 0;
             tempTime = timer + 30f;
             if(place == 0){
@@ -55,18 +54,7 @@ public class GameManager : MonoBehaviourPunCallbacks
         public void Update(){
             timer += Time.deltaTime;
             uitTimer.text = timer.ToString("F2");
-            
-            /*GameObject[] dos = GameObject.FindGameObjectsWithTag("Player");
-            foreach(GameObject pTemp in dos){
-                if(theGoalCol.bounds.Contains(pTemp.transform.position)){
-                    Debug.Log("Someone Hit the Goal");
-                    PhotonView tempView = pTemp.GetPhotonView();
-                    theLeaderboard.text += tempView.Owner.NickName + "\n";
-                    theTimes.text += timer.ToString("F2") + "\n";
-                    Destroy(pTemp);
-                }
-                
-            }*/
+
 
             if(allPlayers < GameObject.FindGameObjectsWithTag("Player").Length){
                 allPlayers = GameObject.FindGameObjectsWithTag("Player").Length;
@@ -123,6 +111,10 @@ public class GameManager : MonoBehaviourPunCallbacks
                 PhotonNetwork.LoadLevel("Launcher");
             }
         }
+        public void HideLeavers(){
+            leavers.SetActive(false);
+            playersLeft.text = "";
+        }
         public override void OnLeftRoom()
         {
             SceneManager.LoadScene(0);
@@ -132,28 +124,16 @@ public class GameManager : MonoBehaviourPunCallbacks
     {
         Debug.LogFormat("OnPlayerEnteredRoom() {0}", other.NickName); // not seen if you're the player connecting
 
-        if (PhotonNetwork.IsMasterClient)
-        {
-            Debug.LogFormat("OnPlayerEnteredRoom IsMasterClient {0}", PhotonNetwork.IsMasterClient); // called before OnPlayerLeftRoom
 
-
-            LoadArena();
-        }
     }
 
 
     public override void OnPlayerLeftRoom(Player other)
-        {
-            Debug.LogFormat("OnPlayerLeftRoom() {0}", other.NickName); // seen when other disconnects
-
-
-        if (PhotonNetwork.IsMasterClient)
-        {
-            Debug.LogFormat("OnPlayerLeftRoom IsMasterClient {0}", PhotonNetwork.IsMasterClient); // called before OnPlayerLeftRoom
-
-
-            LoadArena();
-        }
+    {
+        Debug.LogFormat("OnPlayerLeftRoom() {0}", other.NickName); // seen when other disconnects
+        leavers.SetActive(true);
+        playersLeft.text += other.NickName + " has left the room.";
+        Invoke("HideLeavers", 5f);
     }
 
 
