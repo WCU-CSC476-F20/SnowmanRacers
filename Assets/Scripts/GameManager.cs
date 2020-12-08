@@ -107,7 +107,7 @@ public class GameManager : MonoBehaviourPunCallbacks
                     temp3++;
                     
                     PlayerPrefs.SetFloat(tempView.Owner.NickName, PlayerPrefs.GetFloat(tempView.Owner.NickName) + times[0] + 60f);
-                    Destroy(pTemp);
+                    Destroy(tempView);
                 }
                 
             }
