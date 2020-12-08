@@ -78,6 +78,7 @@ public class GameManager : MonoBehaviourPunCallbacks
             }
             if(timeLeft <= 0f && !loadOnce){
                 Debug.Log("DNF event");
+                loadOnce = true;
                 countdown.SetActive(false);
                 timeZone.SetActive(false);
                 roundOver.SetActive(true);
@@ -106,7 +107,7 @@ public class GameManager : MonoBehaviourPunCallbacks
                     PlayerPrefs.SetFloat(tempView.Owner.NickName, PlayerPrefs.GetFloat(tempView.Owner.NickName) + times[0] + 60f);
                     Destroy(pTemp);
                 }
-                loadOnce = true;
+                
             }
 
             
