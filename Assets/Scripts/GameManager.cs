@@ -34,6 +34,7 @@ public class GameManager : MonoBehaviourPunCallbacks
         public bool someoneFinished = false;
         public bool finalFinish = false;
         public bool finalOnce = false;
+        public bool setColors = true;
 
         /// Called when the local player left the room. We need to load the launcher scene.
         public void Start(){
@@ -60,12 +61,10 @@ public class GameManager : MonoBehaviourPunCallbacks
             timer += Time.deltaTime;
             uitTimer.text = timer.ToString("F2");
 
-
             if(allPlayers < GameObject.FindGameObjectsWithTag("Player").Length){
                 allPlayers = GameObject.FindGameObjectsWithTag("Player").Length;
                 //Debug.Log("allPlayers less than objects found");
             }
-
             if(allPlayers > GameObject.FindGameObjectsWithTag("Player").Length && GameObject.FindGameObjectsWithTag("Player").Length != 0){
                 someoneFinished = true;
                 //Debug.Log("Goal.goalMet = " + Goal.goalMet);

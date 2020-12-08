@@ -59,36 +59,14 @@ public class PlayerMovement : MonoBehaviour
         }
     }
     // Update is called once per frame
-    void Update()
-    {
-        /*if(myView.IsMine){
-            if(Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.A)){
-                
-                if(isJumping){
-                    velocity.y += -.04f;
-                    rb.velocity = velocity;
-                }
-            }
-            
-            if(Input.GetKey(KeyCode.W) && !isJumping){
-                isJumping = true;
-                velocity += transform.up*jumpPower;
-                rb.velocity = velocity;
-            }
-            if(isJumping){
-                    velocity.y += -.04f;
-                    rb.velocity = velocity;
-            }
-            if(velocity.x >= maxSpeed){
-                velocity.x = maxSpeed;
-            }else if(velocity.x <= -maxSpeed){
-                velocity.x = -maxSpeed;
-            }
-            if(velocity.y >= jumpPower){
-                velocity.y = jumpPower;
-            }
-        }*/
-
+    void Update(){
+        if(myView.IsMine){
+             GameObject[] hat = GameObject.FindGameObjectsWithTag("Hat");
+             foreach(GameObject temp in hat){
+                Renderer tempMat = temp.GetComponent<Renderer>();
+                tempMat.material.SetColor("_Color", Color.green);
+             }
+        }
     }
     void FixedUpdate(){
         if(myView.IsMine){
