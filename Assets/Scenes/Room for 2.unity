@@ -5887,8 +5887,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4956536738226484878, guid: 636c80307effa3b4c964173acf1df6a1, type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
-      value: 40
+      value: 50
       objectReference: {fileID: 0}
+    - target: {fileID: 4956536738226484879, guid: 636c80307effa3b4c964173acf1df6a1, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8d01eac798a59ce4f8f2e0818bdf305b, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 636c80307effa3b4c964173acf1df6a1, type: 3}
 --- !u!1 &1783778420
