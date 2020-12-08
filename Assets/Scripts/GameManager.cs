@@ -41,9 +41,8 @@ public class GameManager : MonoBehaviourPunCallbacks
             Time.timeScale = 1f;
             timer = 0;
             tempTime = timer + 30f;
-            if(place == 0){
-                place = 0;
-            }
+            place = 0;
+            
             if(names != null){
                 Array.Clear(names, 0, names.Length);
             }

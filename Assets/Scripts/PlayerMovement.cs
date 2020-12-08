@@ -43,7 +43,7 @@ public class PlayerMovement : MonoBehaviour
                 GameManager.place++;
                 Debug.Log("GameManager.place = " + GameManager.place.ToString());*/
                 myView.RPC("FinishedRace", RpcTarget.All, myView.Owner.NickName, GameManager.timer.ToString("F2"));
-                PhotonNetwork.Destroy(myView);
+                
             }
         }
     }
@@ -112,5 +112,6 @@ public class PlayerMovement : MonoBehaviour
         GameManager.names[GameManager.place] = a;
         GameManager.times[GameManager.place] = b;
         GameManager.place++;
+        PhotonNetwork.Destroy(myView);
     }  
 }
