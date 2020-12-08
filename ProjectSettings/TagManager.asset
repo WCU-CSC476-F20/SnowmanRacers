@@ -9,6 +9,7 @@ TagManager:
   - Goal
   - Enemy
   - Hat
+  - ice
   layers:
   - Default
   - TransparentFX
