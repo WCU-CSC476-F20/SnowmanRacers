@@ -1595,9 +1595,21 @@ PrefabInstance:
       value: 360
       objectReference: {fileID: 0}
     - target: {fileID: 4956536738226484878, guid: 636c80307effa3b4c964173acf1df6a1, type: 3}
+      propertyPath: InheritVelocityModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4956536738226484878, guid: 636c80307effa3b4c964173acf1df6a1, type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
       value: 55
       objectReference: {fileID: 0}
+    - target: {fileID: 4956536738226484878, guid: 636c80307effa3b4c964173acf1df6a1, type: 3}
+      propertyPath: InheritVelocityModule.m_Curve.scalar
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4956536738226484879, guid: 636c80307effa3b4c964173acf1df6a1, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 077d776a0acc7804895be5d654b3275d, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 636c80307effa3b4c964173acf1df6a1, type: 3}
 --- !u!1001 &510340826
