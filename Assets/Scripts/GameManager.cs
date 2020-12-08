@@ -119,7 +119,7 @@ public class GameManager : MonoBehaviourPunCallbacks
                 Debug.Log("Player Prefs Value: " + PlayerPrefs.GetInt("Races"));
             }
             if(PlayerPrefs.GetInt("Races") == 4){
-                if(GameObject.FindGameObjectsWithTag("Player").Length == 0 && !finalFinish){
+                if(GameObject.FindGameObjectsWithTag("Player").Length == 0 && !finalFinish && loadOnce){
                     finalFinish = true;
                     for(int y = 0; y < names.Length; y++){
                         times[y] = PlayerPrefs.GetFloat(names[y]);
