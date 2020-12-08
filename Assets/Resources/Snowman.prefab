@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 1080123655809063867}
   m_Layer: 8
   m_Name: HatTop
-  m_TagString: Untagged
+  m_TagString: Hat
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -148,11 +148,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 992663858078074643}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.0069999695, y: 1.631, z: 0.001999855}
+  m_LocalPosition: {x: -0.055290222, y: 0.9655, z: 0.035476685}
   m_LocalScale: {x: 0.5, y: 0.2, z: 0.5}
   m_Children: []
-  m_Father: {fileID: 6781540011020937094}
-  m_RootOrder: 6
+  m_Father: {fileID: 16354789895717035}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3189261806852891773
 MeshFilter:
@@ -216,7 +216,7 @@ GameObject:
   - component: {fileID: 3030387626710707653}
   m_Layer: 8
   m_Name: HatRim
-  m_TagString: Untagged
+  m_TagString: Hat
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -229,11 +229,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1342843705991509164}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.008998871, y: 1.409, z: 0.0069999695}
+  m_LocalPosition: {x: -0.07128906, y: 0.7435, z: 0.0404768}
   m_LocalScale: {x: 0.8, y: 0.1, z: 0.8}
   m_Children: []
-  m_Father: {fileID: 6781540011020937094}
-  m_RootOrder: 5
+  m_Father: {fileID: 16354789895717035}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &5422331259816536348
 MeshFilter:
@@ -728,8 +728,7 @@ Transform:
   - {fileID: 8261525505312393292}
   - {fileID: 3494553498085433286}
   - {fileID: 6196682286194835386}
-  - {fileID: 8993054278780509729}
-  - {fileID: 8695172966561860206}
+  - {fileID: 16354789895717035}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -839,3 +838,35 @@ MonoBehaviour:
   m_SynchronizeAngularVelocity: 1
   m_TeleportEnabled: 0
   m_TeleportIfDistanceGreaterThan: 3
+--- !u!1 &7979396641965050228
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 16354789895717035}
+  m_Layer: 0
+  m_Name: Hat
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &16354789895717035
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7979396641965050228}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.06229019, y: 0.66550004, z: -0.03347683}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 8993054278780509729}
+  - {fileID: 8695172966561860206}
+  m_Father: {fileID: 6781540011020937094}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
