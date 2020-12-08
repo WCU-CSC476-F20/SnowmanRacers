@@ -73,10 +73,10 @@ public class GameManager : MonoBehaviourPunCallbacks
                 tempTime = timer + 30f;
             }
             if(timeLeft <= 0f && !loadOnce){
-                roundOver.SetActive(true);
-                loadOnce = true;
                 countdown.SetActive(false);
                 timeZone.SetActive(false);
+                roundOver.SetActive(true);
+                loadOnce = true;
                 for(int i = 0; i < names.Length; i++){
                     if(names[i] != null){
                         theLeaderboard.text += (i+1) + ". " + names[i] + "\n";
@@ -94,10 +94,10 @@ public class GameManager : MonoBehaviourPunCallbacks
             
             //Debug.Log("Player Objects: " + GameObject.FindGameObjectsWithTag("Player").Length);
             if(GameObject.FindGameObjectsWithTag("Player").Length == 0 && !loadOnce){
-                roundOver.SetActive(true);
-                loadOnce = true;
                 countdown.SetActive(false);
                 timeZone.SetActive(false); 
+                roundOver.SetActive(true);
+                loadOnce = true;
                 for(int i = 0; i < names.Length; i++){
                     if(names[i] != null){
                         theLeaderboard.text += (i+1) + ". " + names[i] + "\n";
