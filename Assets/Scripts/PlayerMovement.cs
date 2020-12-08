@@ -20,6 +20,7 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         myView = GetComponent<PhotonView>();
+        changeHat();
     }
 
     void OnCollisionStay(Collision other){
@@ -55,11 +56,15 @@ public class PlayerMovement : MonoBehaviour
             if(myView.IsMine){
                 PhotonNetwork.Destroy(myView);
                 GameManager.makePlayer();
+                Invoke("ChangeHat", 2f);
             }
         }
     }
     // Update is called once per frame
     void Update(){
+        
+    }
+    void changeHat(){
         if(myView.Owner.IsLocal){
             GameObject[] hat = GameObject.FindGameObjectsWithTag("Hat");
             foreach(GameObject temp in hat){
