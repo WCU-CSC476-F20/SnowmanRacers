@@ -67,13 +67,6 @@ public class PlayerMovement : MonoBehaviour
                 tempMat.material.SetColor("_Color", Color.green);
              }
         }
-        if(!myView.IsMine){
-            GameObject[] hat = GameObject.FindGameObjectsWithTag("Hat");
-             foreach(GameObject temp in hat){
-                Renderer tempMat = temp.GetComponent<Renderer>();
-                tempMat.material.SetColor("_Color", Color.red);
-             }
-        }
     }
     void FixedUpdate(){
         if(myView.IsMine){
