@@ -11,6 +11,7 @@ namespace Com.MyCompany.MyGame
 
         int temp = 1;
         [SerializeField] private GameObject controlPanel;
+        [SerializeField] private GameObject instructionPanel;
 
         #region Private Serializable Fields
 
@@ -63,6 +64,7 @@ namespace Com.MyCompany.MyGame
         void Start()
         {
             if(!PhotonNetwork.IsConnected){
+                instructionPanel.SetActive(false);
                 progressLabel.SetActive(false);
                 levelPicker.SetActive(false);
                 controlPanel.SetActive(true);
@@ -70,6 +72,7 @@ namespace Com.MyCompany.MyGame
             }else{
                 controlPanel.SetActive(false);
                 progressLabel.SetActive(false);
+                instructionPanel.SetActive(false);
                 levelPicker.SetActive(true);
                 temp = PhotonNetwork.PlayerList.Length;
                 backToPicker();
@@ -114,6 +117,31 @@ namespace Com.MyCompany.MyGame
                 isConnecting = PhotonNetwork.ConnectUsingSettings();
                 PhotonNetwork.GameVersion = gameVersion;
             }
+        }
+
+        public void MakeOwnRoom(){
+            progressLabel.SetActive(true);
+            controlPanel.SetActive(false);
+            if (PhotonNetwork.IsConnected)
+            {
+                PhotonNetwork.CreateRoom(null, new RoomOptions { MaxPlayers = maxPlayersPerRoom });
+            }
+            else
+            {
+                // #Critical, we must first and foremost connect to Photon Online Server.
+                isConnecting = PhotonNetwork.ConnectUsingSettings();
+                PhotonNetwork.GameVersion = gameVersion;
+            }
+        }
+        public void ShowInstructions(){
+            controlPanel.SetActive(false);
+            progressLabel.SetActive(false);
+            levelPicker.SetActive(false);
+            instructionPanel.SetActive(true);
+        }
+        public void LeaveInstruct(){
+            instructionPanel.SetActive(false);
+            controlPanel.SetActive(true);
         }
 
         #region MonoBehaviourPunCallbacks Callbacks

@@ -688,6 +688,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &711876565375525288 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7153777197396018677, guid: 204096df8e53de440b4dd153fdc557d0, type: 3}
+  m_PrefabInstance: {fileID: 711876565375525284}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &711876565375525289 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1212032641, guid: 204096df8e53de440b4dd153fdc557d0, type: 3}
+  m_PrefabInstance: {fileID: 711876565375525284}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7362077312000651996
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -747,6 +763,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7362077312000651998, guid: 52bff22fb29ebe14e838c8151f7d1e52, type: 3}
+      propertyPath: leaver
+      value: 
+      objectReference: {fileID: 711876565375525289}
+    - target: {fileID: 7362077312000651998, guid: 52bff22fb29ebe14e838c8151f7d1e52, type: 3}
+      propertyPath: whoLeft
+      value: 
+      objectReference: {fileID: 711876565375525288}
     - target: {fileID: 7362077312000651998, guid: 52bff22fb29ebe14e838c8151f7d1e52, type: 3}
       propertyPath: tempTime
       value: 30
