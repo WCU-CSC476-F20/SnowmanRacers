@@ -49,6 +49,8 @@ public class GameManager : MonoBehaviourPunCallbacks
             if(names != null){
                 Array.Clear(names, 0, names.Length);
             }
+            finalFinish = false;
+            finalOnce = false;
             PhotonNetwork.Instantiate("Snowman", new Vector3(0, 1, -8), Quaternion.identity, 0);
             allPlayers = GameObject.FindGameObjectsWithTag("Player").Length;
             PlayerPrefs.SetInt("Races", PlayerPrefs.GetInt("Races") + 1);
@@ -75,10 +77,10 @@ public class GameManager : MonoBehaviourPunCallbacks
                 tempTime = timer + 30f;
             }
             if(timeLeft <= 0f && !loadOnce){
+                Debug.Log("DNF event");
                 countdown.SetActive(false);
                 timeZone.SetActive(false);
                 roundOver.SetActive(true);
-                loadOnce = true;
                 for(int i = 0; i < names.Length; i++){
                     if(names[i] != null){
                         if(PlayerPrefs.GetInt("Races") != 4){
@@ -98,11 +100,12 @@ public class GameManager : MonoBehaviourPunCallbacks
                     PlayerPrefs.SetFloat(tempView.Owner.NickName, PlayerPrefs.GetFloat(tempView.Owner.NickName) + times[0] + 60f);
                     Destroy(pTemp);
                 }
+                loadOnce = true;
             }
 
             
             //Debug.Log("Player Objects: " + GameObject.FindGameObjectsWithTag("Player").Length);
-            if(GameObject.FindGameObjectsWithTag("Player").Length == 0 && !loadOnce){
+            if(GameObject.FindGameObjectsWithTag("Player").Length == 0 && !loadOnce && timeLeft > 0){
                 countdown.SetActive(false);
                 timeZone.SetActive(false); 
                 roundOver.SetActive(true);
@@ -120,6 +123,7 @@ public class GameManager : MonoBehaviourPunCallbacks
             }
             if(PlayerPrefs.GetInt("Races") == 4){
                 if(GameObject.FindGameObjectsWithTag("Player").Length == 0 && !finalFinish && loadOnce){
+                    Debug.Log("loadOnce = " + loadOnce);
                     finalFinish = true;
                     for(int y = 0; y < names.Length; y++){
                         times[y] = PlayerPrefs.GetFloat(names[y]);
