@@ -77,11 +77,12 @@ public class GameManager : MonoBehaviourPunCallbacks
                 tempTime = timer + 30f;
             }
             if(timeLeft <= 0f && !loadOnce){
-                Debug.Log("DNF event");
+                
                 loadOnce = true;
                 countdown.SetActive(false);
                 timeZone.SetActive(false);
                 roundOver.SetActive(true);
+                Debug.Log("DNF event");
                 int temp3 = 0;
                 for(int o = 0; o < names.Length; o++){
                     if(names[o] != null){
