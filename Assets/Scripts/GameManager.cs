@@ -137,6 +137,7 @@ public class GameManager : MonoBehaviourPunCallbacks
             }
             if(PlayerPrefs.GetInt("Races") == 4){
                 if(GameObject.FindGameObjectsWithTag("Player").Length == 0 && !finalFinish && loadOnce){
+                    countdown.SetActive(false);
                     Debug.Log("loadOnce = " + loadOnce);
                     finalFinish = true;
                     for(int y = 0; y < names.Length; y++){
@@ -156,6 +157,7 @@ public class GameManager : MonoBehaviourPunCallbacks
                     }
                 }
                 if(finalFinish && !finalOnce){
+                    countdown.SetActive(false);
                     raceResults.text = "Final Times";
                     finalOnce = true;
                     int g = 1;
