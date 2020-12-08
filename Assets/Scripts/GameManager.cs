@@ -133,7 +133,8 @@ public class GameManager : MonoBehaviourPunCallbacks
                     break;    
                 case "Room for 4":
                     PhotonNetwork.LoadLevel("Launcher");
-                    break;    
+                    break;
+            }            
         }
         public override void OnLeftRoom()
         {
