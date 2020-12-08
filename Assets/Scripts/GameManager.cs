@@ -32,6 +32,7 @@ public class GameManager : MonoBehaviourPunCallbacks
         public static int place;
         public bool someoneFinished = false;
         public bool finalFinish = false;
+        public bool finalOnce = false;
 
         /// Called when the local player left the room. We need to load the launcher scene.
         public void Start(){
@@ -123,7 +124,7 @@ public class GameManager : MonoBehaviourPunCallbacks
                     }
                     for(int i = 0; i < names.Length; i++){
                         for(int z = 0; z < names.Length; z++){
-                            if(times[z] < times[i]){
+                            if(times[z] > times[i]){
                                 float temp = times[i];
                                 string temp2 = names[i];
                                 times[i] = times[z];
@@ -134,10 +135,13 @@ public class GameManager : MonoBehaviourPunCallbacks
                         }
                     }
                 }
-                if(finalFinish){
+                if(finalFinish && !finalOnce){
+                    finalOnce = true;
                     for(int b = 0; b < names.Length; b++){
-                        theLeaderboard.text += (b+1) + ". " + names[b] + "\n";
-                        theTimes.text += times[b].ToString("F2") + "\n";
+                        if(times[b] > 1){
+                            theLeaderboard.text += (b+1) + ". " + names[b] + "\n";
+                            theTimes.text += times[b].ToString("F2") + "\n";
+                        }
                     }
                 }
             }
@@ -159,18 +163,16 @@ public class GameManager : MonoBehaviourPunCallbacks
         }
         public void GoNextLevel(){
             string curScene = SceneManager.GetActiveScene().name;
+            PlayerPrefs.SetInt("Races", PlayerPrefs.GetInt("Races") + 1);
             if(PhotonNetwork.IsMasterClient){
                 switch(curScene){
                 case "Room for 1":
-                    PlayerPrefs.SetInt("Races", 2);
                     PhotonNetwork.LoadLevel("Room for 2");
                     break;
                 case "Room for 2":
-                    PlayerPrefs.SetInt("Races", 3);
                     PhotonNetwork.LoadLevel("Room for 3");
                     break;
                 case "Room for 3":
-                    PlayerPrefs.SetInt("Races", 4);
                     PhotonNetwork.LoadLevel("Room for 4");
                     break;    
                 case "Room for 4":
