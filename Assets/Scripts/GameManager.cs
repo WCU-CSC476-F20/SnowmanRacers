@@ -173,5 +173,8 @@ public class GameManager : MonoBehaviourPunCallbacks
         {
             PhotonNetwork.Disconnect();
         }
+        public static void makePlayer(){
+            PhotonNetwork.Instantiate("Snowman", new Vector3(0, 1, -8), Quaternion.identity, 0);
+        }
 
 }
