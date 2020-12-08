@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 3189261806852891773}
   - component: {fileID: 1080123655809063867}
   - component: {fileID: 8141351054407487270}
+  - component: {fileID: 6919052983246398839}
   m_Layer: 8
   m_Name: HatTop
   m_TagString: Hat
@@ -216,6 +217,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01c51cb3daf548a4f8f59cd7254c7c11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6919052983246398839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 992663858078074643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  observableSearch: 2
+  Synchronization: 3
+  OwnershipTransfer: 0
+  ObservedComponents: []
+  viewIdField: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &1342843705991509164
 GameObject:
   m_ObjectHideFlags: 0
@@ -228,6 +251,7 @@ GameObject:
   - component: {fileID: 5422331259816536348}
   - component: {fileID: 3030387626710707653}
   - component: {fileID: 4374864492577596678}
+  - component: {fileID: 6347529358649489787}
   m_Layer: 8
   m_Name: HatRim
   m_TagString: Hat
@@ -310,6 +334,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01c51cb3daf548a4f8f59cd7254c7c11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6347529358649489787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1342843705991509164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  observableSearch: 2
+  Synchronization: 3
+  OwnershipTransfer: 0
+  ObservedComponents: []
+  viewIdField: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &1565122448264738039
 GameObject:
   m_ObjectHideFlags: 0
