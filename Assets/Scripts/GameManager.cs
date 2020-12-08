@@ -30,6 +30,7 @@ public class GameManager : MonoBehaviourPunCallbacks
         public static string[] names = new string[4];
         public static string[] times = new string[4];
         public static int place;
+        public bool someoneFinished = false;
 
         /// Called when the local player left the room. We need to load the launcher scene.
         public void Start(){
@@ -62,6 +63,7 @@ public class GameManager : MonoBehaviourPunCallbacks
             }
 
             if(allPlayers > GameObject.FindGameObjectsWithTag("Player").Length && GameObject.FindGameObjectsWithTag("Player").Length != 0){
+                someoneFinished = true;
                 //Debug.Log("Goal.goalMet = " + Goal.goalMet);
                 countdown.SetActive(true);
                 timeLeft = tempTime - timer;
@@ -135,7 +137,9 @@ public class GameManager : MonoBehaviourPunCallbacks
     {
         Debug.LogFormat("OnPlayerLeftRoom() {0}", other.NickName); // seen when other disconnects
         leavers.SetActive(true);
-        allPlayers--;
+        if(!someoneFinished){
+            allPlayers--;
+        }
         playersLeft.text += other.NickName + " has left the room.";
         Invoke("HideLeavers", 5f);
     }
