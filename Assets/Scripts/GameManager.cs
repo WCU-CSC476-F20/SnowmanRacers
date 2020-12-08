@@ -70,7 +70,7 @@ public class GameManager : MonoBehaviourPunCallbacks
             }else{
                 tempTime = timer + 30f;
             }
-            if(timeLeft <= 0f){
+            if(timeLeft <= 0f && !loadOnce){
                 roundOver.SetActive(true);
                 loadOnce = true;
                 countdown.SetActive(false);
