@@ -18,8 +18,10 @@ public class HatColor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(myView.IsMine){
+            myRend.material.color = Color.green;
 
-        myRend.material.color = Color.green;
+        }
 
     }
 }
