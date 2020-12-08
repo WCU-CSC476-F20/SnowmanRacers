@@ -42,7 +42,7 @@ public class GameManager : MonoBehaviourPunCallbacks
             timer = 0;
             tempTime = timer + 30f;
             place = 0;
-            
+            loadOnce = false;
             if(names != null){
                 Array.Clear(names, 0, names.Length);
             }
@@ -118,6 +118,22 @@ public class GameManager : MonoBehaviourPunCallbacks
         public void HideLeavers(){
             leavers.SetActive(false);
             playersLeft.text = "";
+        }
+        public void GoNextLevel(){
+            string curScene = SceneManager.GetActiveScene().name;
+            switch(curScene){
+                case "Room for 1":
+                    PhotonNetwork.LoadLevel("Room for 2");
+                    break;
+                case "Room for 2":
+                    PhotonNetwork.LoadLevel("Room for 3");
+                    break;
+                case "Room for 3":
+                    PhotonNetwork.LoadLevel("Room for 4");
+                    break;    
+                case "Room for 4":
+                    PhotonNetwork.LoadLevel("Launcher");
+                    break;    
         }
         public override void OnLeftRoom()
         {

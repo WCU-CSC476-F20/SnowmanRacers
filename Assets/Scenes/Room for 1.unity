@@ -329,6 +329,14 @@ PrefabInstance:
       propertyPath: viewIdField
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1248017557, guid: 204096df8e53de440b4dd153fdc557d0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 7362077312000651997}
+    - target: {fileID: 1248017557, guid: 204096df8e53de440b4dd153fdc557d0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: GoNextLevel
+      objectReference: {fileID: 0}
     - target: {fileID: 711876563846688459, guid: 204096df8e53de440b4dd153fdc557d0, type: 3}
       propertyPath: m_Pivot.x
       value: 0
