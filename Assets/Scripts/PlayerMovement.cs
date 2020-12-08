@@ -28,6 +28,11 @@ public class PlayerMovement : MonoBehaviour
             velocity.y = 0f;
         }
     }
+    void OnCollisionExit(Collision other){
+        if(other.gameObject.tag == "ground"){
+            isJumping = true;
+        }
+    }
     void OnTriggerEnter(Collider other){
         if(other.gameObject.tag == "Goal"){
             if(myView.IsMine){
@@ -46,6 +51,12 @@ public class PlayerMovement : MonoBehaviour
                 
             }
         }
+        if(other.gameObject.tag == "Enemy"){
+            if(myView.IsMine){
+                PhotonNetwork.Destroy(myView);
+                GameManager.makePlayer();
+            }
+        }
     }
     // Update is called once per frame
     void Update()
@@ -56,7 +67,8 @@ public class PlayerMovement : MonoBehaviour
                     isJumping = true;
                     velocity.y += jumpPower;   
                     rb.velocity = velocity;
-                }else if(isJumping){
+                }
+                if(isJumping){
                     velocity.y += -.04f;
                     rb.velocity = velocity;
                 }
@@ -74,7 +86,7 @@ public class PlayerMovement : MonoBehaviour
             }
             if(velocity.y >= jumpPower){
                 velocity.y = jumpPower;
-            } 
+            }
         }
 
     }
@@ -113,5 +125,5 @@ public class PlayerMovement : MonoBehaviour
         GameManager.times[GameManager.place] = b;
         GameManager.place++;
         PhotonNetwork.Destroy(myView);
-    }  
+    } 
 }
