@@ -61,23 +61,23 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(myView.IsMine){
+        /*if(myView.IsMine){
             if(Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.A)){
-                if(Input.GetKeyDown(KeyCode.W) && !isJumping){
-                    isJumping = true;
-                    velocity.y += jumpPower;   
-                    rb.velocity = velocity;
-                }
+                
                 if(isJumping){
                     velocity.y += -.04f;
                     rb.velocity = velocity;
                 }
             }
-        
+            
             if(Input.GetKey(KeyCode.W) && !isJumping){
                 isJumping = true;
                 velocity += transform.up*jumpPower;
                 rb.velocity = velocity;
+            }
+            if(isJumping){
+                    velocity.y += -.04f;
+                    rb.velocity = velocity;
             }
             if(velocity.x >= maxSpeed){
                 velocity.x = maxSpeed;
@@ -87,7 +87,7 @@ public class PlayerMovement : MonoBehaviour
             if(velocity.y >= jumpPower){
                 velocity.y = jumpPower;
             }
-        }
+        }*/
 
     }
     void FixedUpdate(){
@@ -107,6 +107,11 @@ public class PlayerMovement : MonoBehaviour
                     //}
                     rb.velocity = velocity;
                 }
+                if(Input.GetKeyDown(KeyCode.W) && !isJumping){
+                    isJumping = true;
+                    velocity.y += jumpPower;   
+                    rb.velocity = velocity;
+                }  
             }else{
                 if(velocity.x > 0){
                     velocity.x -= speed;
@@ -115,7 +120,24 @@ public class PlayerMovement : MonoBehaviour
                     velocity.x += speed;
                     rb.velocity = velocity;
                 }    
-            }    
+            }
+            if(Input.GetKey(KeyCode.W) && !isJumping){
+                isJumping = true;
+                velocity += transform.up*jumpPower;
+                rb.velocity = velocity;
+            }
+            if(isJumping){
+                    velocity.y += -.15f;
+                    rb.velocity = velocity;
+            }
+            if(velocity.x >= maxSpeed){
+                velocity.x = maxSpeed;
+            }else if(velocity.x <= -maxSpeed){
+                velocity.x = -maxSpeed;
+            }
+            if(velocity.y >= jumpPower){
+                velocity.y = jumpPower;
+            }  
         }        
     }
 
