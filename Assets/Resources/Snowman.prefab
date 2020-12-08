@@ -760,7 +760,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   velocity: {x: 0, y: 0, z: 0}
   speed: 1
-  jumpPower: 5
+  jumpPower: 7
   runningJump: 9
   maxSpeed: 10
   isJumping: 0
