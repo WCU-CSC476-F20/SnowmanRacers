@@ -2970,36 +2970,29 @@ MonoBehaviour:
 
     D: Move Right
 
-    W: Jump/Climb
+    W: Jump/Climb Snow
 
 
-    The
-    Goal: To reach the end of the level where the tree with presents is before any
-    of the other players.
+    The Goal: To reach the end of the level where the tree with presents is before
+    any of the other players.
 
 
     Hit the "Play" button to join a random open room.
 
-    Hit
-    the "Make Own Room" button to create your own lobby.
+    Hit the "Make Own Room" button to create your own lobby.
 
-    Once in a lobby, only
-    the room master can choose to start a level.
+    Once in a lobby, only the room master can choose to start a level.
 
-    You can leave a room at any
-    time by hitting the "Leave Room" button at the bottom right of the screen.
+    You can leave a room at any time by hitting the "Leave Room" button at the bottom
+    right of the screen.
 
 
-    Avoid
-    all obstacles like lava pools, pits, and the nutcrackers.
-
-    If you fail to
-    avoid the obstacles you will be respawned at the start of the level.
+    Avoid all obstacles like lava pools and bottomless pits, if you fail to avoid
+    the obstacles you will be respawned at the start of the level.
 
 
-    Once
-    any player finishes the level, all other players will have 30 seconds to reach
-    the end before being marked as DNF (Did Not Finish).'
+    Once any player finishes the level, all other players will have 30 seconds to
+    reach the end before being marked as DNF (Did Not Finish).'
 --- !u!222 &1363257101
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3978,71 +3971,88 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4956536738226484864, guid: 636c80307effa3b4c964173acf1df6a1, type: 3}
+    - target: {fileID: 4956536738226484864, guid: 636c80307effa3b4c964173acf1df6a1,
+        type: 3}
       propertyPath: m_Name
       value: SnowGenerator
       objectReference: {fileID: 0}
-    - target: {fileID: 4956536738226484877, guid: 636c80307effa3b4c964173acf1df6a1, type: 3}
+    - target: {fileID: 4956536738226484877, guid: 636c80307effa3b4c964173acf1df6a1,
+        type: 3}
       propertyPath: m_RootOrder
       value: 8
       objectReference: {fileID: 0}
-    - target: {fileID: 4956536738226484877, guid: 636c80307effa3b4c964173acf1df6a1, type: 3}
+    - target: {fileID: 4956536738226484877, guid: 636c80307effa3b4c964173acf1df6a1,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4956536738226484877, guid: 636c80307effa3b4c964173acf1df6a1, type: 3}
+    - target: {fileID: 4956536738226484877, guid: 636c80307effa3b4c964173acf1df6a1,
+        type: 3}
       propertyPath: m_LocalPosition.y
       value: 15.1
       objectReference: {fileID: 0}
-    - target: {fileID: 4956536738226484877, guid: 636c80307effa3b4c964173acf1df6a1, type: 3}
+    - target: {fileID: 4956536738226484877, guid: 636c80307effa3b4c964173acf1df6a1,
+        type: 3}
       propertyPath: m_LocalPosition.z
       value: -1
       objectReference: {fileID: 0}
-    - target: {fileID: 4956536738226484877, guid: 636c80307effa3b4c964173acf1df6a1, type: 3}
+    - target: {fileID: 4956536738226484877, guid: 636c80307effa3b4c964173acf1df6a1,
+        type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4956536738226484877, guid: 636c80307effa3b4c964173acf1df6a1, type: 3}
+    - target: {fileID: 4956536738226484877, guid: 636c80307effa3b4c964173acf1df6a1,
+        type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4956536738226484877, guid: 636c80307effa3b4c964173acf1df6a1, type: 3}
+    - target: {fileID: 4956536738226484877, guid: 636c80307effa3b4c964173acf1df6a1,
+        type: 3}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4956536738226484877, guid: 636c80307effa3b4c964173acf1df6a1, type: 3}
+    - target: {fileID: 4956536738226484877, guid: 636c80307effa3b4c964173acf1df6a1,
+        type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4956536738226484877, guid: 636c80307effa3b4c964173acf1df6a1, type: 3}
+    - target: {fileID: 4956536738226484877, guid: 636c80307effa3b4c964173acf1df6a1,
+        type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4956536738226484877, guid: 636c80307effa3b4c964173acf1df6a1, type: 3}
+    - target: {fileID: 4956536738226484877, guid: 636c80307effa3b4c964173acf1df6a1,
+        type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4956536738226484877, guid: 636c80307effa3b4c964173acf1df6a1, type: 3}
+    - target: {fileID: 4956536738226484877, guid: 636c80307effa3b4c964173acf1df6a1,
+        type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4956536738226484878, guid: 636c80307effa3b4c964173acf1df6a1, type: 3}
+    - target: {fileID: 4956536738226484878, guid: 636c80307effa3b4c964173acf1df6a1,
+        type: 3}
       propertyPath: RotationModule.enabled
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4956536738226484878, guid: 636c80307effa3b4c964173acf1df6a1, type: 3}
+    - target: {fileID: 4956536738226484878, guid: 636c80307effa3b4c964173acf1df6a1,
+        type: 3}
       propertyPath: InitialModule.startSize.scalar
       value: 0.15
       objectReference: {fileID: 0}
-    - target: {fileID: 4956536738226484878, guid: 636c80307effa3b4c964173acf1df6a1, type: 3}
+    - target: {fileID: 4956536738226484878, guid: 636c80307effa3b4c964173acf1df6a1,
+        type: 3}
       propertyPath: InitialModule.startSize.minScalar
       value: 0.1
       objectReference: {fileID: 0}
-    - target: {fileID: 4956536738226484878, guid: 636c80307effa3b4c964173acf1df6a1, type: 3}
+    - target: {fileID: 4956536738226484878, guid: 636c80307effa3b4c964173acf1df6a1,
+        type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
       value: 35
       objectReference: {fileID: 0}
-    - target: {fileID: 4956536738226484878, guid: 636c80307effa3b4c964173acf1df6a1, type: 3}
+    - target: {fileID: 4956536738226484878, guid: 636c80307effa3b4c964173acf1df6a1,
+        type: 3}
       propertyPath: InitialModule.startLifetime.scalar
       value: 8
       objectReference: {fileID: 0}
