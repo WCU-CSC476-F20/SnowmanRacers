@@ -102,10 +102,10 @@ public class GameManager : MonoBehaviourPunCallbacks
                         
                         theLeaderboard.text += tempView.Owner.NickName + "\n";
                         theTimes.text += "DNF\n";
-                    }else{
-                        names[temp3] = tempView.Owner.NickName;
-                        temp3++;
                     }
+                    names[temp3] = tempView.Owner.NickName;
+                    temp3++;
+                    
                     PlayerPrefs.SetFloat(tempView.Owner.NickName, PlayerPrefs.GetFloat(tempView.Owner.NickName) + times[0] + 60f);
                     Destroy(pTemp);
                 }
