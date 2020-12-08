@@ -179,7 +179,7 @@ namespace Com.MyCompany.MyGame
 
         public override void OnJoinedRoom()
         {
-            PlayerPrefs.SetInt("Races", 1);
+            PlayerPrefs.SetInt("Races", 0);
             controlPanel.SetActive(false);
             progressLabel.SetActive(false);
             levelPicker.SetActive(true);
@@ -190,7 +190,7 @@ namespace Com.MyCompany.MyGame
             }
         }
         public void backToPicker(){
-            PlayerPrefs.SetInt("Races", 1);
+            PlayerPrefs.SetInt("Races", 0);
             playersJoined.text = "Players Joined: \n";
             for(int i = 0; i < PhotonNetwork.PlayerList.Length; i++){
                 playersJoined.text += "\n " + PhotonNetwork.PlayerList[i].NickName;

@@ -50,7 +50,7 @@ public class GameManager : MonoBehaviourPunCallbacks
             }
             PhotonNetwork.Instantiate("Snowman", new Vector3(0, 1, -8), Quaternion.identity, 0);
             allPlayers = GameObject.FindGameObjectsWithTag("Player").Length;
-            
+            PlayerPrefs.SetInt("Races", PlayerPrefs.GetInt("Races") + 1);
             PhotonNetwork.CurrentRoom.IsOpen = false;
         }
         public void Update(){
@@ -164,7 +164,7 @@ public class GameManager : MonoBehaviourPunCallbacks
         }
         public void GoNextLevel(){
             string curScene = SceneManager.GetActiveScene().name;
-            PlayerPrefs.SetInt("Races", PlayerPrefs.GetInt("Races") + 1);
+            
             if(PhotonNetwork.IsMasterClient){
                 switch(curScene){
                 case "Room for 1":
