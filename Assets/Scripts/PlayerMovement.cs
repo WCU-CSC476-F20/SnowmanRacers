@@ -60,12 +60,12 @@ public class PlayerMovement : MonoBehaviour
     }
     // Update is called once per frame
     void Update(){
-        if(myView.IsMine){
-             GameObject[] hat = GameObject.FindGameObjectsWithTag("Hat");
-             foreach(GameObject temp in hat){
+        if(myView.Owner.IsLocal){
+            GameObject[] hat = GameObject.FindGameObjectsWithTag("Hat");
+            foreach(GameObject temp in hat){
                 Renderer tempMat = temp.GetComponent<Renderer>();
                 tempMat.material.SetColor("_Color", Color.green);
-             }
+            }
         }
     }
     void FixedUpdate(){
