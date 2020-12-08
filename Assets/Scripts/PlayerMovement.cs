@@ -47,7 +47,7 @@ public class PlayerMovement : MonoBehaviour
                 Debug.Log("Sent Time");
                 GameManager.place++;
                 Debug.Log("GameManager.place = " + GameManager.place.ToString());*/
-                myView.RPC("FinishedRace", RpcTarget.All, myView.Owner.NickName, GameManager.timer.ToString("F2"));
+                myView.RPC("FinishedRace", RpcTarget.All, myView.Owner.NickName, GameManager.timer);
                 
             }
         }
@@ -142,7 +142,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     [PunRPC]
-    void FinishedRace(string a, string b){
+    void FinishedRace(string a, float b){
         GameManager.names[GameManager.place] = a;
         GameManager.times[GameManager.place] = b;
         GameManager.place++;

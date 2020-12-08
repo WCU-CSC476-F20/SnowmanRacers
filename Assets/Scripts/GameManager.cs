@@ -28,9 +28,10 @@ public class GameManager : MonoBehaviourPunCallbacks
         public float tempTime;
         public float timeLeft = 30;
         public static string[] names = new string[4];
-        public static string[] times = new string[4];
+        public static float[] times = new float[4];
         public static int place;
         public bool someoneFinished = false;
+        public bool finalFinish = false;
 
         /// Called when the local player left the room. We need to load the launcher scene.
         public void Start(){
@@ -78,18 +79,25 @@ public class GameManager : MonoBehaviourPunCallbacks
                 loadOnce = true;
                 for(int i = 0; i < names.Length; i++){
                     if(names[i] != null){
-                        theLeaderboard.text += (i+1) + ". " + names[i] + "\n";
-                        theTimes.text += times[i] + "\n";
+                        if(PlayerPrefs.GetInt("Races") != 4){
+                            theLeaderboard.text += (i+1) + ". " + names[i] + "\n";
+                            theTimes.text += times[i].ToString("F2") + "\n";
+                        }
+                        PlayerPrefs.SetFloat(names[i], PlayerPrefs.GetFloat(names[i]) + times[i]);
                     }
                 }
                 GameObject[] gos = GameObject.FindGameObjectsWithTag("Player");
                 foreach(GameObject pTemp in gos){
                     PhotonView tempView = pTemp.GetPhotonView();
-                    theLeaderboard.text += tempView.Owner.NickName + "\n";
-                    theTimes.text += "DNF\n";
+                    if(PlayerPrefs.GetInt("Races") != 4){
+                        theLeaderboard.text += tempView.Owner.NickName + "\n";
+                        theTimes.text += "DNF\n";
+                    }
+                    PlayerPrefs.SetFloat(tempView.Owner.NickName, PlayerPrefs.GetFloat(tempView.Owner.NickName) + times[0] + 60f);
                     Destroy(pTemp);
                 }
             }
+
             
             //Debug.Log("Player Objects: " + GameObject.FindGameObjectsWithTag("Player").Length);
             if(GameObject.FindGameObjectsWithTag("Player").Length == 0 && !loadOnce){
@@ -99,14 +107,44 @@ public class GameManager : MonoBehaviourPunCallbacks
                 loadOnce = true;
                 for(int i = 0; i < names.Length; i++){
                     if(names[i] != null){
-                        theLeaderboard.text += (i+1) + ". " + names[i] + "\n";
-                        theTimes.text += times[i] + "\n";
-                    }
-                    
+                        if(PlayerPrefs.GetInt("Races") != 4){
+                            theLeaderboard.text += (i+1) + ". " + names[i] + "\n";
+                            theTimes.text += times[i].ToString("F2") + "\n";
+                        }
+                        PlayerPrefs.SetFloat(names[i], PlayerPrefs.GetFloat(names[i]) + times[i]);  
+                    } 
                 }
             }
+            if(PlayerPrefs.GetInt("Races") == 4){
+                if(GameObject.FindGameObjectsWithTag("Player").Length == 0 && !finalFinish){
+                    finalFinish = true;
+                    for(int y = 0; y < names.Length; y++){
+                        times[y] = PlayerPrefs.GetFloat(names[y]);
+                    }
+                    for(int i = 0; i < names.Length; i++){
+                        for(int z = 0; z < names.Length; z++){
+                            if(times[z] < times[i]){
+                                float temp = times[i];
+                                string temp2 = names[i];
+                                times[i] = times[z];
+                                times[z] = temp;
+                                names[i] = names[z];
+                                names[z] = temp2;
+                            }
+                        }
+                    }
+                }
+                if(finalFinish){
+                    for(int b = 0; b < names.Length; b++){
+                        theLeaderboard.text += (b+1) + ". " + names[b] + "\n";
+                        theTimes.text += times[b].ToString("F2") + "\n";
+                    }
+                }
+            }
+        
         }
         public void GoToLobby(){
+            PlayerPrefs.SetInt("Races", 0);
             if(PhotonNetwork.IsMasterClient){
                 Goal.goalMet = false;
                 theLeaderboard.text = "";
@@ -124,12 +162,15 @@ public class GameManager : MonoBehaviourPunCallbacks
             if(PhotonNetwork.IsMasterClient){
                 switch(curScene){
                 case "Room for 1":
+                    PlayerPrefs.SetInt("Races", 2);
                     PhotonNetwork.LoadLevel("Room for 2");
                     break;
                 case "Room for 2":
+                    PlayerPrefs.SetInt("Races", 3);
                     PhotonNetwork.LoadLevel("Room for 3");
                     break;
                 case "Room for 3":
+                    PlayerPrefs.SetInt("Races", 4);
                     PhotonNetwork.LoadLevel("Room for 4");
                     break;    
                 case "Room for 4":

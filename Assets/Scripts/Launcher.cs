@@ -179,18 +179,22 @@ namespace Com.MyCompany.MyGame
 
         public override void OnJoinedRoom()
         {
+            PlayerPrefs.SetInt("Races", 0);
             controlPanel.SetActive(false);
             progressLabel.SetActive(false);
             levelPicker.SetActive(true);
             temp = PhotonNetwork.PlayerList.Length;
             for(int i = 0; i < PhotonNetwork.PlayerList.Length; i++){
-                playersJoined.text += "\n " + PhotonNetwork.PlayerList[i]; 
+                playersJoined.text += "\n " + PhotonNetwork.PlayerList[i].NickName;
+                PlayerPrefs.SetFloat(PhotonNetwork.PlayerList[i].NickName, 0f);
             }
         }
         public void backToPicker(){
+            PlayerPrefs.SetInt("Races", 0);
             playersJoined.text = "Players Joined: \n";
             for(int i = 0; i < PhotonNetwork.PlayerList.Length; i++){
-                playersJoined.text += "\n " + PhotonNetwork.PlayerList[i]; 
+                playersJoined.text += "\n " + PhotonNetwork.PlayerList[i].NickName;
+                PlayerPrefs.SetFloat(PhotonNetwork.PlayerList[i].NickName, 0f);
             }
         }
         public void StartLevelRun(string level){
