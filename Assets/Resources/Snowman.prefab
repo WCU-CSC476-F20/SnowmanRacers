@@ -133,6 +133,7 @@ GameObject:
   - component: {fileID: 8695172966561860206}
   - component: {fileID: 3189261806852891773}
   - component: {fileID: 1080123655809063867}
+  - component: {fileID: 8141351054407487270}
   m_Layer: 8
   m_Name: HatTop
   m_TagString: Hat
@@ -203,6 +204,18 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &8141351054407487270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 992663858078074643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01c51cb3daf548a4f8f59cd7254c7c11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1342843705991509164
 GameObject:
   m_ObjectHideFlags: 0
@@ -214,6 +227,7 @@ GameObject:
   - component: {fileID: 8993054278780509729}
   - component: {fileID: 5422331259816536348}
   - component: {fileID: 3030387626710707653}
+  - component: {fileID: 4374864492577596678}
   m_Layer: 8
   m_Name: HatRim
   m_TagString: Hat
@@ -284,6 +298,18 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &4374864492577596678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1342843705991509164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01c51cb3daf548a4f8f59cd7254c7c11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1565122448264738039
 GameObject:
   m_ObjectHideFlags: 0
