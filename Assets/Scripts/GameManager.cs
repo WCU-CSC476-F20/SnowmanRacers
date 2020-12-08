@@ -132,6 +132,7 @@ public class GameManager : MonoBehaviourPunCallbacks
     {
         Debug.LogFormat("OnPlayerLeftRoom() {0}", other.NickName); // seen when other disconnects
         leavers.SetActive(true);
+        allPlayers--;
         playersLeft.text += other.NickName + " has left the room.";
         Invoke("HideLeavers", 5f);
     }
