@@ -81,21 +81,27 @@ public class GameManager : MonoBehaviourPunCallbacks
                 countdown.SetActive(false);
                 timeZone.SetActive(false);
                 roundOver.SetActive(true);
-                for(int i = 0; i < names.Length; i++){
-                    if(names[i] != null){
+                int o;
+                for(o = 0; o < names.Length; o++){
+                    if(names[o] != null){
                         if(PlayerPrefs.GetInt("Races") != 4){
-                            theLeaderboard.text += (i+1) + ". " + names[i] + "\n";
-                            theTimes.text += times[i].ToString("F2") + "\n";
+                            theLeaderboard.text += (o+1) + ". " + names[o] + "\n";
+                            theTimes.text += times[o].ToString("F2") + "\n";
+                            Debug.Log("i = " +o );
                         }
-                        PlayerPrefs.SetFloat(names[i], PlayerPrefs.GetFloat(names[i]) + times[i]);
+                        PlayerPrefs.SetFloat(names[o], PlayerPrefs.GetFloat(names[o]) + times[o]);
                     }
                 }
                 GameObject[] gos = GameObject.FindGameObjectsWithTag("Player");
                 foreach(GameObject pTemp in gos){
                     PhotonView tempView = pTemp.GetPhotonView();
                     if(PlayerPrefs.GetInt("Races") != 4){
+                        
                         theLeaderboard.text += tempView.Owner.NickName + "\n";
                         theTimes.text += "DNF\n";
+                    }else{
+                        names[o] = tempView.Owner.NickName;
+                        o++;
                     }
                     PlayerPrefs.SetFloat(tempView.Owner.NickName, PlayerPrefs.GetFloat(tempView.Owner.NickName) + times[0] + 60f);
                     Destroy(pTemp);
