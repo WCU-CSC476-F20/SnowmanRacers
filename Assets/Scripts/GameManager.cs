@@ -96,8 +96,8 @@ public class GameManager : MonoBehaviourPunCallbacks
                     temp3 = o;
                 }
                 GameObject[] gos = GameObject.FindGameObjectsWithTag("Player");
-                foreach(GameObject pTemp in gos){
-                    PhotonView tempView = pTemp.GetPhotonView();
+                for(int i = 0; i < gos.Length; i++){
+                    PhotonView tempView = gos[i].GetPhotonView();
                     if(PlayerPrefs.GetInt("Races") != 4){
                         
                         theLeaderboard.text += tempView.Owner.NickName + "\n";
@@ -107,7 +107,7 @@ public class GameManager : MonoBehaviourPunCallbacks
                     temp3++;
                     
                     PlayerPrefs.SetFloat(tempView.Owner.NickName, PlayerPrefs.GetFloat(tempView.Owner.NickName) + times[0] + 60f);
-                    PhotonNetwork.Destroy(pTemp);
+                    PhotonNetwork.Destroy(gos[i]);
                 }
                 
             }
