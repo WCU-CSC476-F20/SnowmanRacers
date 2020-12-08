@@ -138,10 +138,12 @@ public class GameManager : MonoBehaviourPunCallbacks
                 }
                 if(finalFinish && !finalOnce){
                     finalOnce = true;
+                    int g = 1;
                     for(int b = 0; b < names.Length; b++){
                         if(times[b] > 1){
-                            theLeaderboard.text += (b+1) + ". " + names[b] + "\n";
+                            theLeaderboard.text += (g) + ". " + names[b] + "\n";
                             theTimes.text += times[b].ToString("F2") + "\n";
+                            g++;
                         }
                     }
                 }
