@@ -21,8 +21,6 @@ public class HatColor : MonoBehaviour
         if(myView.IsMine){
             myRend.material.color = Color.green;
 
-        }else{
-            myRend.material.color = Color.red;
         }
 
     }
