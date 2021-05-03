@@ -2973,26 +2973,33 @@ MonoBehaviour:
     W: Jump/Climb Snow
 
 
-    The Goal: To reach the end of the level where the tree with presents is before
-    any of the other players.
+    The
+    Goal: Control your snowman in the green hat to reach the end of the level where
+    the tree with presents is before any of the other players.
 
 
-    Hit the "Play" button to join a random open room.
+    Hit the "Play"
+    button to join a random open room.
 
-    Hit the "Make Own Room" button to create your own lobby.
-
-    Once in a lobby, only the room master can choose to start a level.
-
-    You can leave a room at any time by hitting the "Leave Room" button at the bottom
-    right of the screen.
+    Hit the "Make Own Room" button to create
+    your own lobby.
 
 
-    Avoid all obstacles like lava pools and bottomless pits, if you fail to avoid
-    the obstacles you will be respawned at the start of the level.
+    Once in a lobby, only the room master can choose to start
+    a level.
+
+    You can leave a room at any time by hitting the "Leave Room" button
+    at the bottom right of the screen.
 
 
-    Once any player finishes the level, all other players will have 30 seconds to
-    reach the end before being marked as DNF (Did Not Finish).'
+    Avoid all obstacles like lava pools
+    and bottomless pits, if you fail to avoid the obstacles you will be respawned
+    at the start of the level.
+
+
+    Once any player finishes the level, all other
+    players will have 30 seconds to reach the end before being marked as DNF (Did
+    Not Finish).'
 --- !u!222 &1363257101
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3971,88 +3978,71 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4956536738226484864, guid: 636c80307effa3b4c964173acf1df6a1,
-        type: 3}
+    - target: {fileID: 4956536738226484864, guid: 636c80307effa3b4c964173acf1df6a1, type: 3}
       propertyPath: m_Name
       value: SnowGenerator
       objectReference: {fileID: 0}
-    - target: {fileID: 4956536738226484877, guid: 636c80307effa3b4c964173acf1df6a1,
-        type: 3}
+    - target: {fileID: 4956536738226484877, guid: 636c80307effa3b4c964173acf1df6a1, type: 3}
       propertyPath: m_RootOrder
       value: 8
       objectReference: {fileID: 0}
-    - target: {fileID: 4956536738226484877, guid: 636c80307effa3b4c964173acf1df6a1,
-        type: 3}
+    - target: {fileID: 4956536738226484877, guid: 636c80307effa3b4c964173acf1df6a1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4956536738226484877, guid: 636c80307effa3b4c964173acf1df6a1,
-        type: 3}
+    - target: {fileID: 4956536738226484877, guid: 636c80307effa3b4c964173acf1df6a1, type: 3}
       propertyPath: m_LocalPosition.y
       value: 15.1
       objectReference: {fileID: 0}
-    - target: {fileID: 4956536738226484877, guid: 636c80307effa3b4c964173acf1df6a1,
-        type: 3}
+    - target: {fileID: 4956536738226484877, guid: 636c80307effa3b4c964173acf1df6a1, type: 3}
       propertyPath: m_LocalPosition.z
       value: -1
       objectReference: {fileID: 0}
-    - target: {fileID: 4956536738226484877, guid: 636c80307effa3b4c964173acf1df6a1,
-        type: 3}
+    - target: {fileID: 4956536738226484877, guid: 636c80307effa3b4c964173acf1df6a1, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4956536738226484877, guid: 636c80307effa3b4c964173acf1df6a1,
-        type: 3}
+    - target: {fileID: 4956536738226484877, guid: 636c80307effa3b4c964173acf1df6a1, type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4956536738226484877, guid: 636c80307effa3b4c964173acf1df6a1,
-        type: 3}
+    - target: {fileID: 4956536738226484877, guid: 636c80307effa3b4c964173acf1df6a1, type: 3}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4956536738226484877, guid: 636c80307effa3b4c964173acf1df6a1,
-        type: 3}
+    - target: {fileID: 4956536738226484877, guid: 636c80307effa3b4c964173acf1df6a1, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4956536738226484877, guid: 636c80307effa3b4c964173acf1df6a1,
-        type: 3}
+    - target: {fileID: 4956536738226484877, guid: 636c80307effa3b4c964173acf1df6a1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4956536738226484877, guid: 636c80307effa3b4c964173acf1df6a1,
-        type: 3}
+    - target: {fileID: 4956536738226484877, guid: 636c80307effa3b4c964173acf1df6a1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4956536738226484877, guid: 636c80307effa3b4c964173acf1df6a1,
-        type: 3}
+    - target: {fileID: 4956536738226484877, guid: 636c80307effa3b4c964173acf1df6a1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4956536738226484878, guid: 636c80307effa3b4c964173acf1df6a1,
-        type: 3}
+    - target: {fileID: 4956536738226484878, guid: 636c80307effa3b4c964173acf1df6a1, type: 3}
       propertyPath: RotationModule.enabled
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4956536738226484878, guid: 636c80307effa3b4c964173acf1df6a1,
-        type: 3}
+    - target: {fileID: 4956536738226484878, guid: 636c80307effa3b4c964173acf1df6a1, type: 3}
       propertyPath: InitialModule.startSize.scalar
       value: 0.15
       objectReference: {fileID: 0}
-    - target: {fileID: 4956536738226484878, guid: 636c80307effa3b4c964173acf1df6a1,
-        type: 3}
+    - target: {fileID: 4956536738226484878, guid: 636c80307effa3b4c964173acf1df6a1, type: 3}
       propertyPath: InitialModule.startSize.minScalar
       value: 0.1
       objectReference: {fileID: 0}
-    - target: {fileID: 4956536738226484878, guid: 636c80307effa3b4c964173acf1df6a1,
-        type: 3}
+    - target: {fileID: 4956536738226484878, guid: 636c80307effa3b4c964173acf1df6a1, type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
       value: 35
       objectReference: {fileID: 0}
-    - target: {fileID: 4956536738226484878, guid: 636c80307effa3b4c964173acf1df6a1,
-        type: 3}
+    - target: {fileID: 4956536738226484878, guid: 636c80307effa3b4c964173acf1df6a1, type: 3}
       propertyPath: InitialModule.startLifetime.scalar
       value: 8
       objectReference: {fileID: 0}
@@ -4299,8 +4289,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 185.9, y: 48.62}
-  m_SizeDelta: {x: 480, y: 104.76196}
+  m_AnchoredPosition: {x: 185.9, y: 54.2}
+  m_SizeDelta: {x: 480, y: 93.64584}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1830797090
 MonoBehaviour:
